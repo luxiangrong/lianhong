@@ -1,3 +1,9 @@
+Public/uploads/*
+lh/Runtime/Cache/*
+lh/Runtime/Logs/*
+
+.idea/
+
 target/
 pom.xml.tag
 pom.xml.releaseBackup

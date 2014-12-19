@@ -1,0 +1,78 @@
+<style>
+	.mapList{ display:inline-block;width:700px;margin-bottom:40px;}
+	.mapList li{ display:inline-block;float:left;width:157px;padding:5px 2px 5px 0;margin-right:9px;}
+	.mapList li span{display:inline-block;border-bottom:3px solid #b3daf7;width:100%;font-size:13px;line-height:25px;height:25px;text-align:left;font-weight:bold;color:#676767;font-family:黑体;}
+	.mapList li a{   display:inline-block;border-bottom:1px dotted #cccccc;width:100%;font-size:12px;line-height:25px; text-align:left;color:#676767;}
+</style>
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<div id="leftMenu"><br/><br/>
+				<span class="channel" class="action">网站地图</span><br/>
+				<span>&nbsp;</span><br/>
+				<br/><br/>
+			</div>
+		</div>
+		<div id="right">
+			<span class="poster_map">&nbsp;</span><br/>
+			<div style="width:700px;display:inline-block; float:left;">
+				<ul class="mapList">
+					<li>
+						<span>首页</span><br/>
+						<a href="{:U('Index/index')}">栏目链接</a><br/>
+					</li>
+					<li>
+						<span>关于联泓</span><br/>
+						<a href="{:U('Info/speech')}">总裁致辞</a><br/>
+						<a href="{:U('Info/company')}">公司介绍</a><br/>
+						<a href="{:U('Info/team')}">管理团队</a><br/>
+						<a href="{:U('Info/organ')}">组织架构</a><br/>
+						<a href="{:U('Info/course')}">发展历程</a><br/>
+					</li>
+					<li>
+						<span>旗下企业</span><br/>
+						<volist name="comList" id="cl">
+							<a href="{:U('Company/view?id='.$cl['id'])}">{$cl.starName}</a><br/>
+						</volist>
+					</li>
+					<li>
+						<span>联泓动态</span><br/>
+						<a href="{:U('News/lists?catid=1')}">公司要闻</a><br/>
+                        <a href="{:U('News/lists?catid=3')}">公司简讯</a><br/>
+						<a href="{:U('News/lists?catid=2')}">媒体报道</a><br/>
+					</li>
+				</ul>
+				<ul class="mapList">
+					<li>
+						<span>管理/文化</span><br/>
+                        <a href="{:U('Info/manage')}">管理</a><br/>
+						<a href="{:U('Info/cultrue')}">文化</a><br/>
+					</li>
+					<li>
+						<span>人才需求</span><br/>
+						<a href="{:U('Recruit/index')}">栏目链接</a><br/>
+					</li>
+					<li>
+						<span>联系我们</span><br/>
+						<a href="{:U('Info/contact')}">栏目链接</a><br/>
+					</li>
+					<li>
+						<span>联想大家庭</span><br/>
+						<a href="http://www.legendholdings.com.cn/Pages/Index.aspx" style="font-weight:bold;">联想控股</a><br/>
+						<a>联想控股成员企业</a><br/>
+						<a href="http://lenovo.com.cn/">联想集团(lenovo)</a><br/>
+						<a href="http://www.legendcapital.com.cn/">君联资本</a><br/>
+						<a href="http://www.honycapital.com/">弘毅投资</a><br/>
+						<a href="http://www.raycomchina.com/">融科智地房地产股份有限公司</a><br/>
+						<a href="http://www.lakala.com/">拉卡拉支付有限公司</a><br/>
+						<a href="http://www.chinauib.com/">北京联合保险经纪有限公司</a><br/>
+						<a href="http://www.xingheng.com.cn/cn/default.asp">苏州星恒电源有限公司</a><br/>
+                        <a href="http://www.levima.cn/">联泓集团有限公司</a><br/>
+						<a href="http://www.legendstar.com.cn/Site/index.php">联想之星</a><br/>
+					</li>
+				</ul><br/>
+				<div style="display:inline-block;margin-bottom:150px;"></div>
+			</div>
+		</div>
+	</div>
+</div>

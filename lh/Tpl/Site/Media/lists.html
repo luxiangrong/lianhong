@@ -1,0 +1,34 @@
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<include file="News:left"/>
+		</div>
+		<div id="right">
+        <if condition="$catid eq 2">{:get_ads('nT2')}<else/>{:get_ads('nT3')}</if>
+			<br/>
+            <span class="loc" style="border:none;"><if condition="$catid eq 2">媒体报道<else/>公司简讯</if></span>
+			<div class="reportList">
+				<div class="line" style="border-top:1px dotted #ccc; font-weight:bold;"><span class="title" style="font-family:'宋体'; font-size:14px;">标题</span><span class="time"><if condition="$catid eq 3">发布时间<else/>刊登时间</if></span><if condition="$catid eq 2"><span class="time">媒体</span></if></div>
+				<volist name="newsList" id="nl">
+					<div class="line">
+						<a href="{:U('News/view?id='.$nl['id'])}" class="title" style="font-family:'宋体'; font-size:14px;">{:msubstr($nl['newsTitle'],0,28)}</a>
+						<span class="time">{:client_date($nl['createTime'])}</span>
+						<if condition="$catid eq 2"><span class="time">{$nl.newsLink}</span></if>
+					</div>
+				</volist>
+				
+				<div class="line" style="border:0px; float:right; text-align:right; padding-right:20px;">
+					<div class="btnTurnPage" style="float:right;">
+						{$page}
+					</div>
+				</div>
+			</div>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+		</div>
+	</div>
+</div>

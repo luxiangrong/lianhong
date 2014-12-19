@@ -1,0 +1,8 @@
+<div id="leftMenu"><br/><br/>
+	<span class="channel">旗下企业</span><br/>
+	<span>&nbsp;</span><br/>
+	<volist name="comList" id="coml">
+		<a href="{:U('Company/view?id='.$coml['id'])}"  <if condition="$coml['id'] eq $info['id']">class="action"</if>>{$coml.shortName}</a><br/>
+		<span>&nbsp;</span><br/>
+	</volist>	
+</div>

@@ -1,0 +1,40 @@
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<include file="News:left"/>
+		</div>
+		<div id="right">
+			{:get_ads('nT')}<br/>
+			<span class="loc" style="border:none;">公司要闻</span>
+			<div class="clear"></div>
+			<div class="newsList">
+				<volist name="newsList" id="nl">
+					<div class="line">
+						<div class="lineLeft"><img src="{$nl.newsImg}"/></div>
+                        
+						<div class="lineRight">
+							<span class="time" style="font-size:14px; width:460px; text-align:right;">{:client_date($nl['createTime'])}</span><br/>
+							<span class="title"><a href="{:U('News/view?id='.$nl['id'])}" style="font-size:14px; font-weight:bold; font-family:'宋体'">{$nl.newsTitle}</a></span><br/>
+							<p class="summary" style="line-height:20px; padding:2px 0; text-indent:inherit; padding-left:0px; height:58px;font-family:'宋体'; font-size:13px;">
+								{:client_substr($nl['newsContent'],90)}
+							</p>
+							<a href="{:U('News/view?id='.$nl['id'])}" class="more">更多内容&gt;&gt;</a>
+						</div>
+					</div>	
+				</volist>
+				<br/>
+				<div>
+					<div class="btnTurnPage" style="float:right;">
+						{$page}
+					</div>
+				</div>
+			</div>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<include file="Info:left"/>
+		</div>
+		<div id="right">
+			{:get_ads('iDT')}<br/>
+			<span class="loc2" style="margin-bottom:20px;">联泓集团发展历程</span>
+			<div class="storyList">
+				<volist name="courseList" id="course">
+					<div class="line"><span class="year">{$course.courseTime}</span><span class="story">{$course.courseTitle}</span></div>
+				</volist>
+				<div class="line">
+					<div class="btnTurnPage" style="float:right;">
+						{$page}
+					</div>
+				</div>
+			</div>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+		</div>
+	</div>
+</div>

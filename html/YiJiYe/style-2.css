@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, dl, dt, dd, ul, ol, li, p,span, form {
+	padding:0;
+	margin:0;
+	font-family: "微软雅黑", Verdana, Arial, Helvetica, sans-serif, "";}
+body{background:url(../images/lbg.png) repeat-x; background-color:#f0f0f0}
+*{ margin:0px; padding:0px}
+/*联泓动态-公司新闻第一页*/
+#d_xwmid{ width:1000px; height:auto; margin:-2px auto 0 auto; border:0px #000 solid; background:url(../YJ-images/lbg.png) repeat-x; background-color:#FFF}
+/*左侧ul列表*/
+#d_ul{ width:155px; height:184px; border:1px #FFF solid; margin:0 0 0 35px; background-color:#FFF}
+#d_ul ul{ list-style:none; width:120px; height:156px; margin:30px 0 0 10px; border-top:1px #cbcbcb dashed;}
+#d_ul ul li{width:120px; text-align:center; border-bottom:1px #cbcbcb dashed; height:50px; line-height:50px}
+.a_1{ text-decoration:none; font-size:13px; color:#666666}
+.s_1{ color:#666666}
+#d_dbaner1{ width:784px; height:82px; margin:-173px 0 0 192px}
+#p_bt1{ font-size:15px; color:#004087; margin:32px 0 0 192px; padding-bottom:20px}
+/*新闻列表*/
+#d_xwlb{ width:744px; height:158px; border-bottom:1px #cccccc dashed; margin:22px 0 0 192px; background-color:#FFF}
+#img_xw{ border:3px #cccccc solid}
+#t_xw{ border:0px #000 solid; width:550px; margin:-128px 0 0 189px}
+#t_xw td{ width:550px;}
+.s_xw1{ color:#323232; font-size:12px}
+.s_xw2{ color:#323232; font-size:15px}
+.s_xw3{ color:#323232; font-size:12px; line-height:23px}
+.s_xw4{ color:#666666; font-size:12px; float:right}
+.a_gd{ text-decoration:none}
+/*分页位置*/
+#d_fy{ width:270px; height:15px; margin:40px 62px 0 0; float:right; background-color:#FFF}
+.s_fy{ color:#666666; font-size:12px;}
+a.a_fy{ color:#666666; font-size:12px; text-decoration:none;}
+a.a_sz1{ text-decoration:none; text-align:center; padding:0 3px; background-color:#a9a9a9; color:#FFF; font-size:12px; margin:0 5px}
+a.a_sz2{ text-decoration:none; text-align:center; padding:0 3px; color:#666666; font-size:12px; margin:0 5px}
+a.a_sz2:hover{background-color:#a9a9a9; color:#FFF;}
+/*下部两个按钮*/
+#d_an{ width:1000px; height:20px; border:0px #000 dashed; margin:160px auto 0 auto; background-color:#FFF}
+/*网页底部*/
+#d_bottom{ width:1000px; height:59px; background:url(../YJ-images/bottombg.png); margin:30px auto 0 auto; border:1px #FFF solid}
+.s_db{ font-size:9.4px; display:block; margin:27px 0 0 336px}
+.a_db{ text-decoration:none;color:#666666;}
+.a_db:hover{ color:#3f8ed9}
+
+/*联泓动态-公司新闻第二页*/
+#t_xw1{ width:726px; margin:40px 0 0 204px;}
+.s_xw5{ font-size:19px; color:#333333}
+.s_xw6{ font-size:12px; color:#333333; float:right; vertical-align:bottom}
+#t_xw2{ width:726px; margin:2px 0 0 194px;}
+#t_xw2 td{/* text-indent:2em*/}
+.s_xw7{ font-size:12px; color:#333333; line-height:25px}
+#t_xw3{ width:726px; margin:40px 0 0 194px;}
+#t_xw3 td{ height:30px;}
+.s_xw8{ font-size:12px; color:#999999; line-height:25px}
+.s_xw9{ font-size:12px; color:#999999; line-height:25px; float:right; padding-right:50px}
+
+/*媒体报道*/
+#t_bd1{ width:726px; margin:15px 0 0 214px;}
+#t_bd1 tr{ height:50px}
+#t_bd1 td{ border-bottom:1px #cccccc dashed}
+.s_r11{font-size:13px; color:#333333; font-weight:bold;}
+.s_r12{ font-size:13px; color:#323232;}
+.a_bt{ font-size:13px; color:#323232;text-decoration:none}
+/*媒体报道2*/
+#t_bd2{ width:726px; margin:40px 0 0 204px;}
+.s_bd1{ font-size:19px; color:#00428b}
+.s_bd2{ font-size:14px; color:#333333; line-height:25px; font-weight:bold}
+
+/*联泓集团-联系我们页*/
+#d_bt{ width:1000px; height:11px; margin:0 auto 0 auto}
+#d_lxwm{ width:1000px; height:auto; margin:0 auto 0 auto; border:1px #FFF solid; background-color:#FFF;}
+#d_zcbt{ width:145px; height:50px; line-height:50px; border-top:1px #cccccc dashed; border-bottom:1px #cccccc dashed; margin:20px 0 0 35px; background-color:#FFF; text-align:center}
+.p_bt{ color:#666666; font-size:16px}
+#d_bner{ width:781px; height:260px; margin:-73px 0 0 194px}
+.u_lxfs{ list-style:none; margin:60px 0 0 280px; width:auto; height:95px;}
+.u_lxfs li{ line-height:23px}
+.s_01{ color:#666666; font-size:16px; font-weight:bold}
+.s_02{ color:#666666; font-size:12px}
+/*关于联泓-总裁致辞页*/
+#d_zczc{ width:1000px; height:auto; margin:0 auto 0 auto; border:1px #FFF solid; background-color:#FFF}
+/*左侧ul列表*/
+#d_ul2{ width:155px; height:324px; border:0px #000 solid; margin:25px 0 0 35px; background-color:#FFF}
+#d_ul2 ul{ list-style:none; width:120px; height:auto; margin:0 0 0 10px; border-top:1px #cbcbcb dashed;}
+#d_ul2 ul li{width:120px; text-align:center; border-bottom:1px #cbcbcb dashed; height:50px; line-height:50px}
+
+#d_dbaner2{ width:784px; height:86px; margin:-350px 0 0 194px}
+#p_bt2{ font-size:21px; color:#004087; margin:4px 0 0 192px;}
+
+#t_zc{ width:725px;  margin:15px 0 0 194px}
+#t_zc2{ width:725px;  margin:-15px 0 0 194px}
+.s_03{ color:#333333; font-size:12px; line-height:25px;}
+.s_04{ color:#666666; font-size:12px; margin-left:6px; display:block}
+/*关于联泓-组织架构页*/
+#d_bner2{ width:781px; height:260px; margin:-350px 0 0 194px}
+#p_bt3{ font-size:21px; color:#004087; margin:20px 0 0 192px;}
+
+/*关于联泓-发展历程页*/
+#d_fy2{ width:270px; height:15px; margin:40px 162px 0 0; float:right; background-color:#FFF;}
+/*关于联泓-公司介绍页*/
+#t_yj{ width:766px; margin:30px 0 0 194px}
+.s_js1{ color:#044089; font-size:16px}
+.s_js2{ color:#333333; font-size:12px; line-height:25px}
+/*关于联泓-管理团队页*/
+.td1{ height:35px}
+.td2{ width:64px; vertical-align:top; text-align:right; padding-top:10px}
+.td3{ padding-top:10px}
+/*文化/管理-文化页*/
+#t_wh1{ width:766px; margin:30px 0 0 194px; border-bottom:1px #cbcbcb dashed}
+#t_wh2{ width:766px; margin:10px 0 0 194px; border-bottom:1px #cbcbcb dashed}
+#t_wh2 .td4{ padding-left:30px}
+/*文化/管理-管理页*/
+#t_gl{ width:766px; margin:30px 0 0 194px;}
+/*人才需求-列表页*/
+.p_zp{font-family:'微软雅黑'; font-size:16px; color:#024186; margin:30px 0 0 195px}
+#t_rc{ margin:15px 0 0 194px; width:766px; border-bottom:1px #cbcbcb dashed}
+#t_rc tr{ height:60px}
+.s_r1{font-family:'微软雅黑'; font-size:13px; color:#656565; font-weight:bold; margin-left:80px}
+.s_r2{font-family:'微软雅黑'; font-size:13px; color:#004289; margin-left:80px}
+.s_r3{font-family:'微软雅黑'; font-size:13px; color:#656565; margin-left:80px}
+.s_r4{font-family:'微软雅黑'; font-size:13px; color:#656565; margin-left:80px}
+.t_2{ width:766px; margin:30px 0 0 194px; border-bottom:1px #cbcbcb dashed}
+.t_2 tr{ height:40px}
+/*人才需求-第一页*/
+#t_rcxq1{ width:726px; margin:30px 0 0 214px; border-bottom:1px #cbcbcb dashed}
+#t_rcxq1 .td5{ height:40px}
+#t_rcxq2{ width:726px; margin:30px 0 0 214px;}
+/*人才需求-第二页*/
+#d_fy2{ width:270px; height:15px; margin:20px 0 0 214px; float:left; background-color:#FFF}
+/*人才需求-第三页*/
+#t_rcxq3{ width:726px; margin:30px 0 0 214px; border-bottom:1px #cbcbcb dashed}
+#t_rcxq3 .td5{ height:40px}
+/*旗下企业*/
+#d_qxqy{ width:1000px; height:auto; margin:0 auto 0 auto; background-color:#FFF;}
+#d_nb{ width:892px; height:650px; border:0px #d3d3d3 dashed; margin-left:auto; margin-right:auto; margin-top:-15px; background-color:#FFF}
+#d_nr1{ width:272px; height:250px; border-right:1px #d3d3d3 dashed; margin:60px 0 0 23px; float:left}
+#d_nr1 .a_qym{ text-decoration:none; font-size:12.5px; color:#004080; font-family:"微软雅黑"}
+.d_jj{ width:250px; height:40px; border:0px #000 solid; margin:15px 0 0 3px}
+.s_2{ font-size:12px; color:#626262; font-family:"微软雅黑"}
+/*旗下企业-神达页*/
+#t_qy{ margin:30px 0 0 214px;}
+#t_qy2{ width:726px; margin:15px 0 0 214px;}
+#d_hdp{ width:708px; height:187px; margin:30px 0 0 214px}
+
+/*a标签链接*/
+.a_rcxq1{font-family:'微软雅黑'; font-size:13px; color:#004289; text-decoration:none}
+
+.a_1:hover,.a_fy:hover,.a_bt:hover,.a_rcxq1:hover{ color:#3f8ed9}
+.a_xbt{ text-decoration:none; font-size:12px; color:#999999;}
+.a_xbt:hover{ color:#3f8ed9}
+#d_xwlb .s_xw4:hover{ color:#3f8ed9}
+
+
+
+
+
+
+
+
+
+
+
+

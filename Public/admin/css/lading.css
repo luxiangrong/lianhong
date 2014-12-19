@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ padding:0; margin:0;}
+br{ clear:both; height:0;}
+a{ text-decoration:none;}
+body{ font:12px "微软雅黑"; color:#949393;}
+
+.float{ float:left;}
+.fright{ float:right;}
+
+#header{ background:#fdfdfd url(../images/lading_header_01.gif) no-repeat;}
+.header_inner{ width:780px; margin:auto; padding:20px 0 10px 0;}
+
+.banner img{ width:100%;}
+
+#login{ background:#ebebeb url(../images/lading_bg_11.gif) no-repeat center 0; padding-top:26px;}
+.lading{ width:310px; margin:auto; font: bold 14px "微软雅黑"; color:#4b4a4a; padding-bottom:110px;  text-shadow:gray 1px 1px 1px; font-stretch:normal; font-style:normal; font-variant:normal;}
+.lading p{ padding-bottom:10px;}
+.lading p a{ font:12px "宋体";}
+.lading .userna{ background:url(../images/lading_12.gif); width:280px; height:36px; border:none; padding-left:29px;}
+.lading .passwo{ background:url(../images/lading_15.gif); width:280px; height:36px; border:none; padding-left:29px;}
+.lading .submit{ background:url(../images/lading_19.gif); width:143px; height:37px; border:none;}
+.lading p a.back{ background:url(../images/lading_17.gif); display:block; width:142px; height:37px; margin-right:15px; float:left;}
+
+.footer p{ width:400px; margin:auto; color:#949393; font:12px "微软雅黑"; line-height:30px;}

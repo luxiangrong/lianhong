@@ -1,0 +1,49 @@
+{__NOLAYOUT__}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>云祥</title>
+<link href="__ADMIN__/css/style.css" rel="stylesheet" type="text/css" />
+<load href="__ADMIN__/js/jquery-1.6.2.min.js" />
+</head>
+
+<body>
+<div id="topF">
+	<div class="header"><a class="float logo" href="http://www.webbj.cn"><img src="__ADMIN__/images/lading_04.gif" /></a><p class="float">欢迎您登录webbj后台管理系统! </p><p class="float">管理员：<span class="red">{$adminUser}</span><a href="{:U('Public/password')}" target="main">【修改密码】</a></p>
+    <ul class="fright">
+    	<li><a href="{:U('Site/Index/index')}" target="_blank"> <img src="__ADMIN__/images/Bstage_03.gif" /></a></li>
+        <li><a onclick="logout();return false;" href="{:U('Public/logout')}"> <img src="__ADMIN__/images/Bstage_05.gif" /></a></li>
+        <!-- <li><a href="#"> <img src="__ADMIN__/images/Bstage_07.gif" /></a></li> /*帮助中心*/-->
+        <br />
+    </ul>
+    <br />
+    </div>
+    <div class="nav">
+    	<ul>
+        	<li><a eytype="menu" href="#" onClick="sethighlight(0); parent.menu.location='{:U(\'Public/menu?title=后台首页\')}';parent.main.location='{:U(\'Public/main\')}';return false;">后台管理</a></li>
+        	<volist name="nodeGroupList" id="tag">
+        		<li><span><a eytype="menu" href="<if condition="$tag['navUrl']">{:U($tag['navUrl'])}<else/>javascript:void(0);</if>" onClick="sethighlight({:($key+1)});parent.menu.location='{:U(\'Public/menu?pid=\'.$tag[\'id\'].\'&title=\'.$tag[\'navName'])}';">{$tag.navName}</a></span></li>
+        	</volist>
+        	<br />
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+function logout(){
+	window.parent.frames.location.href="{:U('Public/logout')}"; 
+}
+function sethighlight(n) {
+	var lis = jq('a[eytype="menu" ]');
+	for(var i = 0; i < lis.length; i++) {
+		lis[i].className = '';
+	}
+	lis[n].className = 'visted';
+}
+sethighlight(0);
+</script>
+</body>
+</html>
+
+
+

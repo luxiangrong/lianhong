@@ -1,0 +1,58 @@
+<style>
+html {overflow-x:hidden;}
+#footerWrap,#footer{background:#dbdbdb;}
+body{background:#5d5d5d;}
+#headerWrap, #contentWrap{background:#fff;}
+#headerWrap{text-align:center;width:1280px; margin:0 auto; display:block;/*border:1px solid red;*/}
+#footerWrap,#contentWrap{ width:1280px; margin:0 auto; overflow:hidden; display:block;}
+#contentWrap{ background:#d2d2d2;}
+</style>
+<div id="contentWrap" style="position: relative;">
+	<div id="footerWrap" style="position: absolute;bottom:0px;Opacity: 0.8;filter: alpha(opacity=80);">
+		<div id="footer">
+			|&nbsp;&nbsp;{$setting.copyRight}&nbsp;&nbsp;{$setting.record}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="{:U('Sitemap/sitemap')}" <if condition="strtolower(MODULE_NAME) == 'index'">style="color:#666666;"</if>>网站地图</a>&nbsp;&nbsp;|
+		</div>
+	</div>
+<volist name="setting['images']" id="image">
+	<span class="poster_home"><img src="{$image}" tptype="img" width="1442" height="556" id="img_{$i}" <if condition="$i neq 1">style="display:none;"</if> /></span>
+</volist>
+</div>
+<script src="__SITE__/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var timerout = null;
+var currIndex = 0;
+var next = 1;
+var imgNum = $('.poster_home').length;
+var timerout = setTimeout(bShow,4000);
+function bShow(){
+	if(currIndex >= imgNum){
+    	currIndex = 0;
+	}
+	currIndex++;	
+	next = currIndex + 1;
+	if(next >= imgNum + 1){
+    	next = 1;
+	}
+	$('#img_' + currIndex).fadeOut(500,function(){
+		$('#img_' + next).fadeIn(500);
+		timerout = setTimeout(bShow,4000);
+	});
+}
+/*
+	
+
+function bShow(){
+	var imgNum = $('.poster_home').length;
+	alert(imgNum);
+	if(currIndex >= imgNum - 1){
+    	currIndex = 0;
+	}else{
+		currIndex++;
+	}
+	//$('#img_' + currIndex).fadeOut('slow');
+	//alert('img_'+currIndex);
+	jq('.bList').eq(currIndex).find('img').removeClass('opacity_5').addClass('opacity_10');
+	timerout = setTimeout(bShow,3000);
+}*/
+</script>

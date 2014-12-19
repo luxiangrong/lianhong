@@ -1,0 +1,139 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<div class="sysM">
+	<h3><if condition="$star['id']">编辑<else/>新增</if>>> 【<a href="{:U('Star/index')}">列表</a>】<br /></h3>
+    <form action="__SELF__" method="post">
+    <ul class="addad">
+    	<li><span class="addadtit">企业名称：</span><input type="text" name="starName" value="{$star.starName}"/></li>
+    	<li><span class="addadtit">企业简称：</span><input type="text" name="shortName" value="{$star.shortName}"/></li>
+    	<li>
+    		<span class="addadtit">LOGO图片：</span>
+    		<input type="text" id="logo" name="logo" value="{$star.logo}" />
+			<input type="button" class="reset" id="logoBtn" value="上传" />
+			<if condition="$star['logo']">
+    			<img src="{$star['logo']}" width="146" height="43" onerror="jq(this).remove()" /> 
+    		</if>
+    	</li>
+    	<li>
+    		<span class="addadtit">图片：</span>
+    		<input type="text" id="jupload" name="starImg" value="{$star.starImg}" />
+			<input type="button" class="reset" id="picBtn" value="上传" />
+			<if condition="$star['starImg']">
+    			<img src="{$star['starImg']}" width="146" height="43" onerror="jq(this).remove()" /> 
+    		</if>
+    	</li>
+    	<li>
+    		<span class="addadtit">内页头图：</span>
+    		<input type="text" id="starLargeImg" name="starLargeImg" value="{$star.starLargeImg}" />
+			<input type="button" class="reset" id="picstarLargeImg" value="上传" />
+			<if condition="$star['starLargeImg']">
+    			<img src="{$star['starLargeImg']}" width="146" height="43" onerror="jq(this).remove()" /> 
+    		</if>
+    	</li>
+    	<li><span class="addadtit">排序：</span><input type="text" name="stepSort" value="{$star.stepSort}"/></li>
+    	<!-- <li>
+    		<span class="addadtit">是否首页：</span>
+    		<input type="radio" name="isIndex" value="1" <php> if($star['isIndex'] || !$star) echo "checked='checked'";</php>/>是
+			<input type="radio" name="isIndex" value="0" <php> if(!$star['isIndex'] && $star) echo "checked='checked'";</php> />否
+    	</li> -->
+    	<li>
+    		<span class="addadtit">描述：</span>
+    		<textarea id="editor_id" name="starContent" style="width:670px;height:300px;">{$star.starContent}</textarea>
+    	</li>
+    	<li>
+    		<span class="addadtit">展示图片：</span>
+    		<if condition="$star['images']">
+    		<volist name="star['images']" id="photo">
+    		<input type="text" tptype="showpic" name="images[]" value="{$photo}" /><br/>
+    		</volist>
+    		</if>
+			<input type="text" tptype="showpic" name="images[]" value=""/>   		
+			<input type="button" class="reset" id="showpicBtn" value="上传" />
+		</li>
+    	<li>
+    		<input type="hidden" name="id" value="{$star.id}" />
+    		<input class="submit" name="setSubmit" type="submit" value="保 存" />
+    		<input class="reset" name="backBtn" type="reset" value="取 消" onclick="window.history.back(-1);"/>
+    	</li>
+    	<li><span></span></li>
+    </ul>
+	</form>
+</div>
+
+<script type="text/javascript">
+var editor;
+KindEditor.ready(function(K) {
+		var options = {
+	   		uploadJsonPath : "{:U('Kindeditorupload/imageupload')}",
+	   		fileJsonPath : "{:U('Kindeditorupload/filemanager')}"
+	   };
+        editor = K.create('#editor_id',options);
+});
+jq(document).ready(function() {
+        new AjaxUpload('#picBtn', {
+            action :'{:U('Upload/upload')}',//请求目标
+            name:'upfile',//文件参数名
+            multiple:false,//可以多选文件
+            onComplete:function(file, response) {
+            	var response = eval('('+response+')');
+            	if(response.msg){
+            		alert(response.msg);
+            	}else{
+            		jq('#jupload').val(response.file);
+            	}
+            }  
+        });
+        new AjaxUpload('#picstarLargeImg', {
+            action :'{:U('Upload/upload')}',//请求目标
+            name:'upfile',//文件参数名
+            multiple:false,//可以多选文件
+            onComplete:function(file, response) {
+            	var response = eval('('+response+')');
+            	if(response.msg){
+            		alert(response.msg);
+            	}else{
+            		jq('#starLargeImg').val(response.file);
+            	}
+            }  
+        });
+        
+         new AjaxUpload('#logoBtn', {
+            action :'{:U('Upload/upload')}',//请求目标
+            name:'upfile',//文件参数名
+            multiple:false,//可以多选文件
+            onComplete:function(file, response) {
+            	var response = eval('('+response+')');
+            	if(response.msg){
+            		alert(response.msg);
+            	}else{
+            		jq('#logo').val(response.file);
+            	}
+            }  
+        });
+                
+        new AjaxUpload('#showpicBtn', {
+            action :'{:U('Upload/upload')}',//请求目标
+            name:'upfile',//文件参数名
+            multiple:false,//可以多选文件
+            onComplete:function(file, response) {
+            	var response = eval('('+response+')');
+            	if(response.msg){
+            		alert(response.msg);
+            	}else{
+            		var picVal = jq('input[tptype="showpic"]:last').val();
+            		if(picVal){
+            			var html = '<br/><input type="text" style="margin-left:116px;" tptype="showpic" name="images[]" value="' + response.file + '"/>';
+            			jq('input[tptype="showpic"]:last').after(html);
+            		}else{
+            			jq('input[tptype="showpic"]:last').val(response.file);
+            		}
+            	}
+            }  
+        });
+});
+jq('input[tptype="showpic"]').css('margin-left','116px');
+jq('input[tptype="showpic"]:first').css('margin-left','');
+</script>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }
+<include file="Public:mainfooter" />

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>{$setting.siteTitle}</title>
+	<base href="{:C('SITE_URL')}" />
+	<link type="text/css" rel="stylesheet" href="__SITE__/css/menu.css">
+	<link type="text/css" rel="stylesheet" href="__SITE__/css/frameset.css">
+	<script src="__SITE__/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script src="__SITE__/js/jquery.js" type="text/javascript"></script>
+	<script src="__SITE__/js/menu.js" type="text/javascript"></script>
+	<style>
+		body{background:#f0f0f0;}
+		#headerWrap,#contentWrap{display:inline-block;text-align:center;width:100%;/*border:1px solid red;*/}
+		div#menu span.menusel{color:#3FA3EF; display:block;}
+	</style>
+	<script type="text/javascript">
+	//返回顶部
+	function reTop(){
+		scroll(0,0);		
+	}
+	</script>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="bookmark" href="favicon.ico"/>
+</head>
+<body style="overflow-x:hidden">
+	<div id="headerWrap">
+		<div id="header">
+			<div id="logo"></div>
+			<div id="favBar">
+				<form method="post" action="{:U('Search/index')}">
+				<div id="searchBar">
+					<span style="border:1px solid #c4c4c4; position:absolute; overflow:hidden; float:left; display:block; margin-top:10px;">
+					<input type="text" id="searchKeyword" style="margin:-2px;" name="search" value="{$search}">
+					</span>
+					<input type="image" src="__SITE__/images/btn_search.jpg" id="btnSearch"/>
+				</div>
+				</form>
+				<div id="headerMenu">
+					<!-- 菜单开始 -->
+						<div id="menu">
+							<ul class="menu">
+								<li><a href="{:U('Index/index')}" class="parent"><span <if condition="strtolower(MODULE_NAME) eq 'index'">class="menusel"</if>>首页</span></a></li>
+                                <li class="line"></li>
+								<li><a href="{:U('Info/speech')}"><span <if condition="(strtolower(MODULE_NAME) eq 'info') and ((strtolower(ACTION_NAME) neq 'contact') and (strtolower(ACTION_NAME) neq 'cultrue') and (strtolower(ACTION_NAME) neq 'manage'))">class="menusel"</if>>关于联泓</span></a>
+									<div style="left:0;padding-top:10px;padding:0 0 5px 0;width:78px;">
+										<ul style="width:78px;">
+											<li><a href="{:U('Info/speech')}" style="width:auto;"><span  style="text-align:center;padding:0 10px;">总裁致辞</span></a></li>
+											<li><a href="{:U('Info/company')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">公司介绍</span></a></li>
+											<li><a href="{:U('Info/team')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">管理团队</span></a></li>
+											<li><a href="{:U('Info/organ')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">组织架构</span></a></li>
+											<li><a href="{:U('Info/course')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">发展历程</span></a></li>
+										</ul>
+									</div>
+									<div style="padding-top:10px;float:none;left:-5px;width:250px;height:10px;margin:0;padding:0;border:none;Opacity:1;filter:alpha(opacity=100)"></div>
+								</li>
+                                <li class="line"></li>
+								<li><a href="{:U('Company/index')}"><span <if condition="strtolower(MODULE_NAME) eq 'company'">class="menusel"</if>>旗下企业</span></a>
+										<div style="width:180px;left:0;padding-top:10px;">
+												<ul>
+													<volist name="comList" id="coml">
+														<li><a href="{:U('Company/view?id='.$coml['id'])}" style="width:auto;"><span style="text-align: left;padding:0 10px 0 12px;">{$coml.starName}</span></a></li>
+													</volist>
+												</ul>
+										</div>
+										<div style="padding-top:10px;float:none;left:-5px;width:250px;height:10px;margin:0;padding:0;border:none;Opacity:1;filter:alpha(opacity=100)"></div>
+								</li>
+                                <li class="line"></li>
+								<li><a href="{:U('News/lists?catid=1')}"><span <if condition="strtolower(MODULE_NAME) eq 'news'">class="menusel"</if>>联泓动态</span></a>
+									<div style="left:0;padding-top:10px;padding:0 0 5px 0;width:78px;">
+										<ul style="width:78px;">
+											<li><a href="{:U('News/lists?catid=1')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">公司要闻</span></a></li>
+                                            <li><a href="{:U('News/lists?catid=3')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">公司简讯</span></a></li>
+											<li><a href="{:U('News/lists?catid=2')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">媒体报道</span></a></li>
+										</ul>
+									</div>
+									<div style="padding-top:10px;float:none;left:-5px;width:250px;height:10px;margin:0;padding:0;border:none;Opacity:1;filter:alpha(opacity=100)"></div>
+								</li>
+                                <li class="line"></li>
+								<li><a href="{:U('Info/manage')}"><span <if condition="(strtolower(MODULE_NAME) eq 'info') and ((strtolower(ACTION_NAME) eq 'cultrue') or (strtolower(ACTION_NAME) eq 'manage'))">class="menusel"</if>>管理/文化</span></a>
+									<div style="left:0;padding-top:10px;padding:0 0 5px 0;width:84px;">
+										<ul style="width:84px;">
+                                        <li><a href="{:U('Info/manage')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">管&nbsp;&nbsp;理</span></a></li>
+											<li><a href="{:U('Info/cultrue')}" style="width:auto;"><span style="text-align:center;padding:0 10px;">文&nbsp;&nbsp;化</span></a></li>
+											
+										</ul>
+									</div>
+									<div style="padding-top:10px;float:none;left:-5px;width:250px;height:10px;margin:0;padding:0;border:none;Opacity:1;filter:alpha(opacity=100)"></div>
+								</li>
+                                <li class="line"></li>
+								<li><a href="{:U('Recruit/index')}"><span <if condition="strtolower(MODULE_NAME) eq 'recruit'">class="menusel"</if>>人才需求</span></a></li>
+                                <li class="line"></li>
+								<li><a href="{:U('Info/contact')}"><span <if condition="(strtolower(MODULE_NAME) eq 'info') and (strtolower(ACTION_NAME) eq 'contact')">class="menusel"</if>>联系我们</span></a></li>
+                                <li class="line"></li>
+								<li  class="last">
+									<a class="noborder"><span>联想大家庭</span></a>
+									<div style="padding-top:10px">
+										<ul>
+										<li><a href="http://www.legendholdings.com.cn/Pages/Index.aspx" target="_blank"><span style="font-size:13px;">&nbsp;&nbsp;&nbsp;&nbsp;联想控股</span></a></li>
+										<li><a class="sub"><span>&nbsp;&nbsp;&nbsp;&nbsp;联想控股成员企业</span></a>
+										
+										</li>
+										<li><a href="http://lenovo.com.cn/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;联想集团(lenovo)</span></a></li>
+										<li><a href="http://www.legendcapital.com.cn/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;君联资本</span></a></li>
+										<li><a href="http://www.honycapital.com/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;弘毅投资</span></a></li>
+										<li><a href="http://www.raycomchina.com/" target="_blank"><span>融科智地房地产股份有限公司</span></a></li>
+										<li><a href="http://www.lakala.com/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;拉卡拉支付有限公司</span></a></li>
+										<li><a href="http://www.chinauib.com/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;北京联合保险经纪有限公司</span></a></li>
+										<li><a href="http://www.xingheng.com.cn/cn/default.asp" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;苏州星恒电源有限公司</span></a></li>
+                                        <li><a href="http://www.levima.cn/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;联泓集团有限公司
+</span></a></li>
+										<li><a href="http://www.legendstar.com.cn/Site/index.php" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;联想之星</span></a></li>
+                                        <li><a href="http://www.legendholdings.com.cn/Business/EnsenCare.aspx" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;安信颐和</span></a></li>
+                                        <li><a href="http://www.legendholdings.com.cn/Business/Wine.aspx" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;丰联集团</span></a></li>
+                                        <li><a href="http://www.legendholdings.com.cn/Business/BetterChain.aspx" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;增益供应链</span></a></li>
+                                        <li><a href="http://www.zuche.com/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;神州租车</span></a></li>
+                                        <li><a href="http://www.huge.com.cn/" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;上海弘基企业（集团）股份有限公司</span></a></li>
+                                        <li><a href="http://www.zqfinancial.com/default.php" target="_blank"><span>&nbsp;&nbsp;&nbsp;&nbsp;正奇安徽金融控股有限公司</span></a></li>
+									</ul>
+									</div>
+									<div style="padding-top:10px;float:none;left:-120px;width:260px;height:10px;margin:0;padding:0;border:none;Opacity:1;filter:alpha(opacity=100)"></div>
+								</li>
+							</ul>
+						</div>
+					<!-- 菜单结束 -->
+				</div>
+			</div>
+		</div>
+	</div>
+    <div id="headerLine"></div>
+	{__CONTENT__}
+	<if condition="strtolower(MODULE_NAME) neq 'index'">
+	<div id="footerWrap">
+		<div id="footer">
+			|&nbsp;&nbsp;{$setting.copyRight}&nbsp;&nbsp;&nbsp;&nbsp;{$setting.record}&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="{:U('Sitemap/sitemap')}" <if condition="strtolower(MODULE_NAME) == 'index'">style="color:#000000;"</if>>网站地图</a>&nbsp;&nbsp;|
+		</div>
+	</div>
+	</if>
+</body>
+</html>

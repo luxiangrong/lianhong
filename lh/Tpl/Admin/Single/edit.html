@@ -1,0 +1,64 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<div class="sysM">
+	<h3><if condition="$singleInfo['id']">编辑单页<else/>新增单页</if>>> 【<a href="{:U('Single/index')}">单页列表</a>】<br /></h3>
+    <form action="__SELF__" method="post">
+    <ul class="addad">
+    	<li><span class="addadtit">单页标题：</span><input type="text" name="singleTitle" value="{$singleInfo.singleTitle}"/></li>
+    	<li>
+    		<span class="addadtit">单页类型：</span>
+    		<select name="singleType"  hidefocus>
+	    	  	<volist name="singleTypes" id="st">
+					<option <if condition="$st['type'] eq $singleInfo['singleType']">selected="selected"</if> value="{$st.type}">{$st.name}</option>
+				</volist>
+	   	  	</select>
+    	</li>
+    	<!-- <li>
+    		<span class="addadtit">图片：</span>
+    		<input type="text" id="jupload" name="singleImg" value="{$singleInfo.singleImg}" />
+			<input type="button" class="reset" id="picBtn" value="上传" />
+    	</li> -->
+    	<li><span class="addadtit">单页别名：</span><input type="text" name="singleName" value="{$singleInfo.singleName}"/></li>
+    	<li><span class="addadtit">排序：</span><input type="text" name="singleSort" value="{$singleInfo.singleSort}"/></li>
+    	<li>
+    		<span class="addadtit">单页内容：</span>
+    		<textarea id="content" name="singleContent" style="width:670px;height:300px;">{$singleInfo.singleContent}</textarea>
+    	</li>
+    	<li>
+    		<input type="hidden" name="id" value="{$singleInfo.id}" />
+    		<input class="submit" name="setSubmit" type="submit" value="保 存" />
+    		<input class="reset" name="backBtn" type="reset" value="取 消" onclick="window.history.back(-1);"/>
+    	</li>
+    	<li><span></span></li>
+    </ul>
+	</form>
+</div>
+<script type="text/javascript">
+var editor;
+KindEditor.ready(function(K) {
+		var options = {
+	   		uploadJsonPath : "{:U('Kindeditorupload/imageupload')}",
+	   		fileJsonPath : "{:U('Kindeditorupload/filemanager')}"
+	   };
+        editor = K.create('#content',options);
+});
+
+jq(document).ready(function() {
+        new AjaxUpload('#picBtn', {
+            action :'{:U('Upload/upload')}',//请求目标
+            name:'upfile',//文件参数名
+            multiple:false,//可以多选文件
+            onComplete:function(file, response) {
+            	var response = eval('('+response+')');
+            	if(response.msg){
+            		alert(response.msg);
+            	}else{
+            		jq('#jupload').val(response.file);
+            	}
+            }  
+        });
+});
+</script>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }
+<include file="Public:mainfooter" />

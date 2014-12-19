@@ -1,0 +1,30 @@
+<div id="contentWrap">
+	<div id="content">
+		{:get_ads('cLT')}<br/>			
+			<div class="subCompany">
+				<ul id="boxl">
+				<volist name="list" id="com" mod="3">
+					<li>
+						<span>{$com.starName}</span>
+						<img src="{$com.starImg}" width="245" height="109"/><br/>
+                        
+						<p>
+							{:msubstr(strip_tags($com['starContent']),0,37,false)}
+						</p>
+						<a href="{:U('Company/view?id='.$com['id'])}">更多内容</a>
+					</li>
+				</volist>					
+				</ul>
+			</div>
+			<br/><br/>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+	</div>
+</div>
+<script type="text/javascript">
+$('#boxl li:nth-child(3n)').css('border-right','none');
+</script>

@@ -1,0 +1,56 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<div class="sysM">
+	<h3>
+		<form method='get' class="fright" name="dict" action="" id="dict">
+			<select name="newsType">
+				<option value="">请选择</option>
+				<volist name="types" id="t">
+					<option value="{$t.id}" <if condition="$t['id'] eq $id">selected="selected"</if>>{$t.dictName}</option>
+				</volist>
+			</select>			
+			<input type="hidden" name="a" value="index"/>
+			<input type="hidden" name="m" value="news"/>
+			<input type="hidden" name="g" value="admin"/>
+			<input class="sech" name="newsTitle" type="text" value="{$title}">
+			<input class="serc" type="submit" value="" id="subBtn">
+		</form>
+		新闻列表>> 【<a href="{:U('News/edit')}">添加新闻</a>】<br />
+	</h3>
+    <table cellspacing="0" cellpadding="0">
+      <thead>
+      <tr>
+        <th class="Number">编号</th>
+        <th>新闻类型</th> 
+	    <th>新闻标题</th>
+	    <th>新闻图片</th> 
+	    <th>关联信息</th>
+	    <!-- <th>是否首页</th> 
+	    <th>是否置顶</th>  -->
+	    <!-- <th>更新时间</th> -->
+	    <th>创建时间</th>
+        <th class="operatio">操作</th>
+      </tr>
+  	  </thead>
+      <tbody>
+      <volist name="list" id="v">
+      <tr>
+        <td class="td1st">{$v.id}</td>
+        <td>{$v.typeName}</td>
+		<td>{$v.newsTitle}</td>
+		<td><img src="{$v.newsImg}" width="146" height="43" onerror="jq(this).remove()" /></td>
+		<td>{$v.newsLink}</td>
+		<!-- <td>{:status($v['isIndex'])}</td>
+		<td>{:status($v['isTop'])}</td> -->
+		<!-- <td>{:date($v['updateTime'])}</td> -->
+		<td>{:date('Y-m-d',$v['createTime'])}</td>
+        <td class="tdlast"><a href="{:U('News/edit?id='.$v['id'])}" class="edit"> 编辑</a><a href="{:U('News/del?id='.$v['id'])}" class="dele">删除</a></td>
+      </tr>
+      </volist>
+      </tbody>
+    </table>
+	<div class="record fright">{$page}</div>
+</div>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }
+<include file="Public:mainfooter" />

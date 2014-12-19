@@ -1,0 +1,123 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+*{ padding:0; margin:0;}
+br{ clear:both; height:0;}
+a{ text-decoration:none;}
+a img{border:none;}
+body{ font:12px "微软雅黑"; color:#949393;}
+ul{ list-style:none;}
+
+.float{ float:left;}
+.fright{ float:right;}
+span.redd{color:red;}
+
+#topF{ background:#fdfdfd url(../images/lading_header_01.gif) no-repeat;}
+.header{ padding:20px 0; width:92%; margin:auto;}
+.header .logo{ padding:0 40px 0 6px;}
+.header p{ padding-left:12px;}
+.header .red{ color:#e88f4d;}
+.header ul li{ float:left;}
+
+.nav{ background:url(../images/Bstage_17.gif) repeat-x; height:57px; padding-top:25px; text-align:center;}
+.nav ul{ width:92%; margin:auto;}
+.nav ul li{ float:left;}
+.nav ul li a{ display:block; width:106px; height:26px; background:url(../images/Bstage_22.gif) no-repeat; line-height:32px; margin-right:3px; color:#eff0f0; font:14px "微软雅黑"; padding-top:6px;}
+.nav ul li a:hover{ background:url(../images/visted_20.gif) no-repeat; color:#1f5393;}
+.nav ul li a.visted{ background:url(../images/visted_20.gif) no-repeat right; color:#1f5393;}
+
+.leftF{ background:#ebebeb;}
+#sideF{ padding:22px 30px 50px 40px; text-align:center;}
+.sidenav{ font:12px "微软雅黑"; line-height:22px; background:#d4d4d4 url(../images/left_bg_42.gif) no-repeat bottom; width:118px; margin:auto; padding-bottom:15px; margin-top:10px;}
+.sidenav li{ padding-bottom:2px; padding-left:1px;}
+.sidenav h4{ background:url(../images/left_bg_31.gif) no-repeat -2px top; padding:12px 0 6px 12px;}
+
+.sidenav a{ width:90px; height:24px; display:block; background:#fefdfd; padding-left:24px; color:#383737; text-align:left;}
+.sidenav a:hover{ width:106px; background:url(../images/left_bg_39.gif) no-repeat; padding-left:24px; text-align:left;}
+.sidenav a.backsta:hover{ background:url(../images/left_g_35.gif) no-repeat 4px 4px;}
+.sidenav a.backsta{ background:url(../images/left_g_35.gif) no-repeat 4px 4px;}
+
+.sidenav a.current{ width:106px; background:url(../images/left_bg_39.gif) no-repeat; padding-left:24px; text-align:left;}
+
+.rightF{ background:#ebebeb;}
+.rightFra,.sysM{ padding:30px 0 0 10px;}
+.rightFra h3,.sysM h3{ background:url(../images/left_bg_28.gif) no-repeat 0 2px; padding: 0 26px 6px 20px; color:#2d5d99; width:94%;}
+.rightFra table{ width:94%; border:1px #d4d4d4 solid; border-right:1px #fdfdfe solid; border-bottom:1px #fdfdfe solid; color:#555454; font:12px "宋体";}
+.rightFra table td{ line-height:28px; padding-left:24px; border:1px #fdfdfe solid; border-right:1px #d4d4d4 solid; border-bottom:1px #d4d4d4 solid;}
+/*---------------------------sysM-start----------------------------*/
+.sysM{ width:94%; padding-left:12px;}
+.sysM h3 input{ vertical-align:middle;}
+.sysM .addad li input{ width:190px; margin:0 6px 0; vertical-align:middle;}
+.sysM h3 .sech{ background:url(../images/adset_03.gif) 0 0; width:164px; padding-left:6px; height:22px; border:none;}
+.sysM h3 .serc{ background:url(../images/adset_03.gif) -170px 0; width:27px; height:22px; border:none;}
+.sysM table{ text-align:center; width:94%; border:1px #d4d4d4 solid; border-bottom:1px #fdfdfe solid; border-right:1px #fdfdfe solid; color:#555454; font:12px "宋体";}
+.sysM th{ background:#fefdfd; padding:5px 4px; border-bottom:1px #d4d4d4 solid; font-weight:normal;}
+.sysM table thead{ padding:8px 0;}
+.sysM .Number{ background:#fefdfd url(../images/adset_07.gif) no-repeat;}
+.sysM .operatio{ background:#fefdfd url(../images/adset_09.gif) no-repeat right;}
+.sysM tr{}
+.sysM td{ border:1px #fdfdfe solid; border-right:1px #d4d4d4 solid; border-bottom:1px #d4d4d4 solid; padding:6px 0;}
+.sysM td .edit{ padding:0 8px 0 20px; background:url(../images/adset_18.gif) no-repeat; color:#555454;}
+.sysM td .dele{ padding-left:20px; background:url(../images/adset_21.gif) no-repeat 2px 1px; color:#555454;}
+.sysM .td1st{}
+/*---------------------------sysM-end----------------------------*/
+.rightF .sysM .submit{ background:url(../images/addadv_15.gif); width:88px; height:23px; color:#7a3901; margin-left:110px; margin-right:20px;border:none;}
+.rightF .sysM .reset{ background:url(../images/addadv_17.gif); width:88px; height:23px; color:#7a3901;}
+.rightF .sysM label input{width:16px;background:none\9;}
+.rightF .sysM ul li{width:100%;height:auto;clear:both\9;}
+.rightF table.carry td.textL,.rightF table.carry td.out,.rightF table.carry td.over{text-align:left;text-indent:3em;padding:0;}
+.rightF ul li table{width:70%;line-height:22px;}
+.rightF ul li table p{text-align:left;}
+/*-------------------------------addadstart-------------------------------*/
+.addad{ padding:18px 20px; background:url(../images/addadul-bg_03.gif) repeat-x; width:94%; color:#555454;}
+.addad li{ padding:2px 0; line-height:30px;}
+.addad li p{width:85%;display:inline-block;}
+.addadtit{display:inline-block; width:110px;float:left;}
+.addad li input{ background:url(../images/addadv_06.gif) left top; padding-left:6px; height:22px; border:none;}
+.addad li .submit{ background:url(../images/addadv_15.gif); width:88px; height:23px; color:#7a3901; margin-left:110px; margin-right:20px;}
+.addad li .reset{ background:url(../images/addadv_17.gif); width:88px; height:23px; color:#7a3901;}
+.addad li .files{ margin-left:110px;}
+.addad li #picBtn{width:88px;}
+.addad li select{ background:url(../images/addadv_03.gif); width:190px; height:22px; border:none; margin-left:6px;}
+@media all and (min-width: 0px){.rightF li select {margin-left:6px;} } 
+.addad li textarea{ background:#fefdfd url(../images/textarea_13.gif) repeat-x top; width:198px; height:85px; border:none; padding:4px;}
+.addad li em{ color:#bcbcbc;}
+/*-------------------------------addadend-------------------------------------*/
+/*-------------------------------fmoneystart-------------------------------------*/
+.sysM .fmoney li input{ width:16px;}
+.sysM .fmoney li span{display:inline-block;width:80px;}
+.sysM .fmoney li.subM{ padding:10px 0 0 100px;}
+.sysM .fmoney li .submit{ margin-left:0px;}
+/*.sysM .fmoney li .submit{ background:url(../images/addadv_15.gif); width:88px; height:23px; color:#7a3901; margin-right:10px;}
+.sysM .fmoney li .reset{ background:url(../images/addadv_17.gif); width:88px; height:23px; color:#7a3901;}*/
+.sysM .fishM input.sech{ width:104px;}
+.sysM form.fishM{line-height:26px;}
+.sysM form.fishM #region{display:inline-block;}
+/*-------------------------------fmoneyend-------------------------------------*/
+
+/*-------------------------------dynamic-start-----------------------------------------------*/
+.dynamic{ padding:18px 20px; line-height:26px; width:94%; color:#555454;}
+.dynamic h3{ color:#2d5d99; background:url(../images/addadul-bg_03.gif) repeat-x bottom; padding:0 0 4px 2px;}
+.dynamic ul{ width:485px; padding-top:4px;}
+.rightF .dynamic ul li{ width:210px; padding:; float:left;}
+.dynamic ul li span{ width:120px; display:inline-block;}
+.dynamic p a{ color:#e07522;}
+.remind{ padding:8px 0 16px 0;}
+.Wdynamic{ padding:8px 0 16px 0;}
+.Sinfo{ padding:8px 0 16px 0; background:url(../images/addadul-bg_03.gif) repeat-x bottom;}
+
+/*-------------------------------dynamic-end-----------------------------------------------*/
+
+/*-----------------------------------authority-start---------------------------------------*/
+.sysM .authority table{text-align:left;line-height:22px;}
+.sysM .authority table td{padding:3px 6px 2px 6px;}
+/*-----------------------------------authorityend---------------------------------------*/
+.rightF .sysM .hMargin{margin-left:10px;}
+
+/*--------------------------------------Commoditie-start---------------------------------*/
+.sysM .Commoditie li .submit{margin-left:0;}
+/*--------------------------------------Commoditie-end---------------------------------*/
+.sysM .padbo{padding_bottom:8px;}
+
+.footerF{ background:#fefefe; color:#949393; font:12px "微软雅黑"; line-height:30px;}
+.footerF div{ width:390px; margin:auto;}

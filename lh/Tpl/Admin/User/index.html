@@ -1,0 +1,37 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<div class="sysM">
+	<h3>用户列表>>[ <a href="{:U('User/edit')}">添加用户</a> ]<br /></h3>
+	  <table cellspacing="0" cellpadding="0">
+      <thead>
+      <tr class="row" onmouseover="over()" onmouseout="out()">
+        <th class="Number">用户名</th>
+	   <th>昵称</th> 
+	   <th>Email</th>  
+	   <th>是否启用</th> 
+	   <th>用户分组</th> 
+	   <th>更新时间</th>
+	   <th>创建时间</th>
+        <th class="operatio">操作</th>
+      </tr>
+  	  </thead>
+      <tbody>
+      <volist name="list" id="v">
+      <tr class="row" onmouseover="over()" onmouseout="out()">
+		<TD class="td1st">{$v.account}</TD>
+		<TD>{$v.nickname}</TD>
+		<TD>{$v.email}</TD>
+		<TD>{:status($v['status'])}</TD>
+		<TD>{$v.groupName}</TD>
+		<TD>{:format_date($v['update_time'])}</TD>
+		<TD>{:format_date($v['create_time'])}</TD>
+		<TD><a href="{:U('User/edit?id='.$v['id'])}" class="edit">编辑</a>&nbsp;<a href="{:U('User/del?id='.$v['id'])}" class="dele">删除</a></TD>
+      </tr>
+		</volist>
+      </tbody>
+    </table>
+	<div class="record fright">{$page}</div>
+</div>
+
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }

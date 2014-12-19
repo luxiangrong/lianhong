@@ -1,0 +1,101 @@
+<link rel="stylesheet" type="text/css" href="__SITE__/css/about.css" />
+<link rel="stylesheet" type="text/css" href="__SITE__/css/news.css" />
+<div class="w960">
+    <!--banner-->
+    <div class="mb5">
+        {:get_ads('gsB')}
+    </div>
+    <!--left-->
+
+    	<include file="Info:left"/>
+    <!--left end-->
+    
+    <!--right-->
+    <div class="mainright r">
+        <div class="currnav mb10">
+            <h3 class="l">关于弘诚创易</h3>
+            <span class="r">
+                您的位置:<a href="index.php">主页</a>&nbsp;&gt;&nbsp;公司介绍
+            </span>
+            <div class="c"></div>
+        </div>
+        
+        <div class="divbox about divyj mb10">
+            <h3 class="mb15 h3title">公司简介</h3>
+            <div class="l">
+            	<img src="{$company['singleImg']}" width="206" height="219" />
+            </div>
+            <div class="aboutcon r">
+            	<p>{:client_substr(strip_tags(htmlspecialchars_decode($company['singleContent'])),300)}</p>
+            	
+            		 <p class="r"><a href="{:U('Site/Info/company')}">[<font color="#FF0000">详情</font>]</a></p>
+            </div>
+            <div class="c"></div>
+        </div>
+        
+        <div class="divbox l mb10 w360 divyj teaminfo">
+            <h3 class=" l mb15 h3title">团队风采</h3> <p class=" gywm_more r"><a href="{:U('Site/Info/style')}" >more</a></p>
+            <a class="pre" href="javascript:vod(0);"></a>
+            <a class="next" href="javascript:vod(0);"></a>
+            <div class="teampicbox">
+                <ul class="teampic">
+                	<volist name="star" id="v">
+                    <li><a href="{:U('Info/view?id='.$v['id'])}"><img src="{$v.starImg}" width="129" height="91" /></a></li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <div class="divbox r mb10 w360 divyj fzlc">
+            <h3 class="mb15 l h3title">发展历程</h3> <p class=" gywm_more r"><a href="{:U('Site/Info/course')}" class="gywm_more r">more</a></p>
+            <div class="c"></div>
+           <p style="line-height: 22px;text-indent: 2em;">{:client_substr(strip_tags(htmlspecialchars_decode($course['singleContent'])),150)}</p>
+        </div>
+        
+        <div class="divbox l mb10 divyj w360">
+            <h3 class="mb15 h3title l">企业文化</h3> <p class=" gywm_more r"><a href="{:U('Site/Info/enterprise')}" class="r">more</a></p>
+            <div class="c"></div>
+            	 <p style="line-height: 22px;text-indent: 2em;">{:client_substr(strip_tags(htmlspecialchars_decode($enterprise['singleContent'])),170)}</p>
+        </div>
+        <div class="divbox r mb10 divyj w360">
+            <h3 class="mb15 l h3title">联系我们</h3> <p class=" gywm_more r"><a href="{:U('Site/Info/contact')}" class="r">more</a></p>
+            <img src="{$contact['singleImg']}" width="327" height="107" />
+        </div>
+        
+    </div>
+    <!--right end-->
+    
+</div>
+
+<div class="c"></div>
+
+<hr />
+ <script type="text/javascript">
+
+        $(document).ready(function(){
+			var ul = $('.teampic');
+			var li = $('.teampic li');
+			var left = $('.pre');
+			var right = $('.next');
+			ul.css('width',li.length*140);
+			var lc = 0;
+			var rc = li.length-2;	
+
+			left.click(function(){
+				if(rc < 1){
+					return;
+				}
+				rc--;
+				lc++;
+				ul.animate({left:'-=129px'},600);
+			});		
+
+			right.click(function(){
+				if(lc < 1){
+					return;
+				}
+				lc--;
+				rc++;
+				ul.animate({left:'+=129px'},1000);
+			});
+		});  
+        </script>

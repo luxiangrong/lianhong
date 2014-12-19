@@ -1,0 +1,42 @@
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<include file="News:left"/>
+		</div>
+		<div id="right">
+			{:get_ads('nT')}<br/>
+			<div class="article">
+				<div id="articleHead">
+					<span class="title">{$info.newsTitle}</span>
+					<span class="time">{:client_date($info['createTime'])}</span>
+				</div><br/>
+				<div style="line-height:28px;margin-top:8px; padding-right:70px; margin-bottom:20px; text-align:left; font-size:14px;">
+						{$info.newsContent}
+				</div><br/>
+			</div>	
+			<if condition="$data['down']">
+			<div class="directory">
+				<div class="row">
+					<a href="{:U('News/view?id='.$data['down']['id'])}"><span class="rowTitle">下一条&nbsp;:&nbsp;{$data.down.newsTitle}</span></a>
+					<span class="rowTime">{:client_date($data['down']['createTime'])}</span>
+				</div>
+				<br/>
+			</div>	
+			</if>
+			<if condition="$data['up']">
+			<div class="directory">
+				<div class="row">
+					<a href="{:U('News/view?id='.$data['up']['id'])}"><span class="rowTitle">上一条&nbsp;:&nbsp;{$data['up']['newsTitle']}</span></a>
+					<span class="rowTime">{:client_date($data['up']['createTime'])}</span>
+				</div><br/>
+			</div>	
+			</if>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+		</div>
+	</div>
+</div>

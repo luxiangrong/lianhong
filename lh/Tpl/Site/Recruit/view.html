@@ -1,0 +1,38 @@
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<include file="Recruit:left"/>
+		</div>
+		<div id="right">
+			{:get_ads('rVT')}<br/>
+			<span class="loc" style="border:0px;font-size:16px;color:#004185;">招聘信息</span><br/>
+			<div class="article" style="width:630px;margin-bottom:200px; float:left; padding-left:30px;">
+				<div id="articleHead">
+					<span class="title" style="color:#004185;">{$info.officeName}&nbsp;&nbsp;|&nbsp;&nbsp;<font style="font-size:14px;">{$info.companyName}</font></span>
+					<span class="time"></span>
+				</div><br/>
+				<span class="jobReq">岗位职责:</span><br/>
+				<span class="jobDes">{$info.duty}</span><br/>
+				<span class="jobReq">任职资格:</span><br/>
+				<span class="jobDes">{$info.post}</span><br/>
+				<span class="jobReq">工作地点:</span><br/>
+				<span class="jobDes" style="font-family:宋体;font-size:14px">{$info.address}</span><br/>
+
+				<!-- <span class="jobReq">联系方式:</span><br/>
+				<span class="jobDes">{$info.contact}</span><br/> -->
+				<br/>
+			</div>
+			<div class="line">
+				<div class="btnTurnPage" style="float:right;">
+					{$page}
+				</div>
+			</div>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+		</div>
+	</div>
+</div>

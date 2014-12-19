@@ -1,0 +1,42 @@
+{__NOLAYOUT__}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>云祥后台登陆</title>
+<link href="__ADMIN__/css/lading.css" rel="stylesheet" type="text/css" />
+<load href="__ADMIN__/js/prototype.js" />
+<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="bookmark" href="favicon.ico"/>
+<script language="JavaScript">
+<!--
+function fleshVerify(){
+//重载验证码
+var timenow = new Date().getTime();
+$('verifyImg').src= "{:U('Public/verify')}";
+}	
+//-->
+</script>
+</head>
+
+<body>
+<div id="header">
+	<div class="header_inner"><img class="float" src="__ADMIN__/images/lading_04.gif" /><p class="fright">欢迎您登录webbj后台管理系统！</p><br /></div>
+</div>
+<div class="banner">
+	<img src="__ADMIN__/images/banner_08.gif" />
+</div>
+<div id="login">
+	<div class="lading">
+   	  <form action="{:U('Public/Login')}" method="post">
+    	<p><!--a class="fright" href="#">忘记密码？</a-->用户登录</p>
+        <p><input class="userna" name="account" type="text" /></p>
+        <p><input class="passwo" name="password" type="password" /></p>
+		<if condition="$setting['loginAdmin']"><p>验证码:<input type="text"  class="small bLeftRequire" check="Require" warning="请输入验证码" name="verify"> <img id="verifyImg" SRC="{:U('Public/verify')}" onClick="fleshVerify()" BORDER="0" ALT="点击刷新验证码" style="cursor:pointer" align="absmiddle"></p></if>
+        <p><a class="back" href="{:C('SITE_URL')}" target="_brank"></a><input class="submit" name="" type="submit" value="" /></p>
+        </form>
+    </div>
+</div>
+<div class="footer"><p>Copyright ©2012 Webbj.cn, All Rights Reserved  京ICP备09113889号</p></div>
+</body>
+</html>

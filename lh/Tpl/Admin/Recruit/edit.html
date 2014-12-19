@@ -1,0 +1,46 @@
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<div class="sysM">
+	<h3><if condition="$info['id']">编辑<else/>新增</if>>> 【<a href="{:U('Recruit/index')}">列表</a>】<br /></h3>
+    <form action="__SELF__" method="post">
+    <ul class="addad">
+    	<li><span class="addadtit">职位名称：</span><input type="text" name="officeName" value="{$info.officeName}"/></li>
+    	<li><span class="addadtit">部门名称：</span><input type="text" name="companyName" value="{$info.companyName}"/></li> 
+    	<li><span class="addadtit">工作地点：</span><input type="text" name="address" value="{$info.address}"/></li>
+    	<li><span class="addadtit">发布日期：</span><input type="text" name="createTime" <if condition="$info['createTime']">value="{:date('Y-m-d',$info['createTime'])}"<else/>value="{:date('Y-m-d')}"</if>/></li>
+    	<!-- <li><span class="addadtit">招聘人数：</span><input type="text" name="recruitNum" value="{$info.recruitNum}"/></li>
+    	<li><span class="addadtit">学历要求：</span><input type="text" name="degree" value="{$info.degree}"/></li> -->
+    	<!--<li><span class="addadtit">开始日期：</span><input type="text" name="startTime" value="{$info.startTime}"/></li>
+    	 <li><span class="addadtit">截止日期：</span><input type="text" name="endTime" value="{$info.endTime}"/></li>
+    	<li><span class="addadtit">排序：</span><input type="text" name="sort" value="{$info.sort}"/></li> -->
+    	<li>
+    		<span class="addadtit">岗位职责：</span>
+    		<textarea id="duty_id" name="duty" style="width:670px;height:245px;">{$info.duty}</textarea>
+    	</li>
+    	<li>
+    		<span class="addadtit">任职条件：</span>
+    		<textarea id="post_id" name="post" style="width:670px;height:245px;">{$info.post}</textarea>
+    	</li>
+    	<!-- <li>
+    		<span class="addadtit">联系方式：</span>
+    		<textarea id="contact_id" name="contact" style="width:670px;height:245px;">{$info.contact}</textarea>
+    	</li> -->
+    	<li>
+    		<input type="hidden" name="id" value="{$info.id}" />
+    		<input class="submit" name="setSubmit" type="submit" value="保 存" />
+    		<input class="reset" name="backBtn" type="reset" value="取 消" onclick="window.history.back(-1);"/>
+    	</li>
+    	<li><span></span></li>
+    </ul>
+	</form>
+</div>
+<script type="text/javascript">
+        KindEditor.ready(function(K) {
+                K.create('#duty_id');
+                K.create('#post_id');
+                K.create('#contact_id');
+        });
+</script>
+<!-- 主页面结束 -->
+{// 加载尾部公共文件 }
+<include file="Public:mainfooter" />

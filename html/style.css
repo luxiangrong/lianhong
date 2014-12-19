@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*.body{ margin:0; padding:0;	font-size:12px;	font-family:"微软雅黑, Arial, Helvetica, sans-serif";}*/
+*{ margin:0; padding:0}
+.top{ width:1000px; height:130px; border:0px #000 solid; margin:auto; background-color:#FFF}
+.d_ss{ width:193px; height:20px; border:0px #000 solid; margin:-90px 0 0 750px}
+/*导航*/
+.d_dh{ margin:30px 0 0 245px;}
+.d_dh .u1,.u2,.u3,.u4{ list-style:none;}
+.d_dh .u1 li{ float:left;}
+.d_dh .u1 .l1{ float:left; width:83px; text-align:center; border:0px #000 solid}
+.d_dh .u1 li .a_dh{ text-decoration:none; font-size:12.5px; font-family:"微软雅黑"; color:#6c6c6c;}
+
+.u2{ position:absolute; width:88px;}
+.u3{ position:absolute; width:250px;}
+.u4{ position:absolute; width:250px;}
+
+.d_dh .u1 .l1:hover .u2{ display:block}
+.u2{ margin-left:-3px; display:none}
+.d_dh .u2 li{ width:88px; height:25px; line-height:25px; text-align:center;  border-left:1px #cccccc solid;  border-right:1px #cccccc solid; }
+.d_dh .u1 li .a_dh2{ text-decoration:none; font-size:12px; font-family:"宋体"; color:#6c6c6c; }
+
+.d_dh .u1 .l1:hover .u3{ display:block}
+.u3{ margin-left:-3px; display:none}
+.d_dh .u3 li{ width:250px; height:25px; line-height:25px; text-align:left;  border-left:1px #cccccc solid;  border-right:1px #cccccc solid; }
+.s1{ padding-left:21px}
+
+.d_dh .u1 .l1:hover .u4{ display:block}
+.u4{ margin-left:-157px; display:none}
+.d_dh .u4 li{ width:250px; height:25px; line-height:25px; text-align:right;  border-left:1px #cccccc solid;  border-right:1px #cccccc solid; }
+.s2{ padding-right:21px}
+.d_dh .u1 li .a_dh3{ text-decoration:none; font-size:11.5px; font-family:"宋体"; color:#6c6c6c; }
+
+.u2 li,.u3 li,.u4 li{ background-color:#FFF; filter:alpha(opacity=90);}
+
+.s_bq{ font-size:9px; color:#676767; font-family:"微软雅黑"; margin-left:560px; margin-top:15.5px; position:absolute; width:320px}
+.a_bq{ text-decoration:none; font-size:9px; color:#676767; font-family:"微软雅黑";}
+.s_dt{ font-size:9px; color:#676767; font-family:"微软雅黑"; margin-left:848px; margin-top:15.5px; position:absolute; width:40px}
+
+/*.d_dh .u1 li .a_dh:visited,.d_dh .u1 li .a_dh2:visited,.d_dh .u1 li .a_dh3:visited{ color:#3f8ed9}*/
+.d_dh .u1 li .a_dh:hover,.d_dh .u1 li .a_dh2:hover,.d_dh .u1 li .a_dh3:hover{ color:#3f8ed9}
+/*.bottom .a_bq{ color:#3f8ed9}*/

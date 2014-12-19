@@ -1,0 +1,39 @@
+{__NOLAYOUT__}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__ADMIN__/css/style.css" rel="stylesheet" type="text/css" />
+<load href="__ADMIN__/js/jquery-1.6.2.min.js" />
+</head>
+
+<body class="leftF">
+<div id="sideF">
+<ul class="sidenav">
+	<li><h4><a class="backsta"><present name="Think.get.title"> {$Think.get.title}</present><notpresent name="Think.get.title">后台首页</notpresent></a></h4></li>
+	<volist id="item" name="menu" >
+	<li><a href="{:U($item['navUrl'])}" eytype="leftmenu" onclick="sethighlight({$key})" id="{$key}" target="main">{$item['navName']}</a></li>
+	</volist>
+</ul>
+</div>
+</body>
+<script language="JavaScript">
+	<!--
+	function refreshMainFrame(url){
+		parent.main.document.location = url;
+	}
+	if (document.anchors[0]){
+		refreshMainFrame(document.anchors[0].href);
+	}
+	
+	function sethighlight(n) {
+		var lis = jq('a[eytype="leftmenu"]');
+		for(var i = 0; i < lis.length; i++) {
+			lis[i].className = '';
+		}
+		lis[n].className = 'current';
+	}//-->
+</script>
+</html>
+

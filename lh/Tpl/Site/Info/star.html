@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="__SITE__/css/news.css" />
+<link rel="stylesheet" type="text/css" href="__SITE__/css/about.css" />
+<div class="w960">
+    <!--banner-->
+    <div class="mb5">
+        {:get_ads('gsB')}
+    </div>
+    <!--left-->
+  		 <include file="Info:left"/>
+    <!--left end-->
+    
+    <!--right-->
+    <div class="mainright r">
+        <div class="currnav mb10">
+            <h3 class="l">团队风采</h3>
+            <span class="r">
+                您的位置:<a href="index.php">主页</a>&nbsp;&gt;&nbsp;团队风采
+            </span>
+            <div class="c"></div>
+        </div>
+        <div class="contentfc mb10">
+        	<ul>
+        		<volist name="star" id="v">
+        		<li>
+        		<a href="{:U('Info/view?id='.$v['id'])}">
+        		<img src="{$v.starImg}" width="180" height="132" style="border: 1px solid #f7f7f7;" />
+        		<div style="width: 180px; text-align: center; line-height: 30px;">{$v.starName}</div>
+        		</a></li>
+        		</volist>
+	        </ul>
+
+        </div>
+        
+    </div>
+    <!--right end-->
+    
+</div>
+
+<div class="c"></div>
+
+<hr />

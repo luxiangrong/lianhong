@@ -1,0 +1,127 @@
+<script type="text/javascript" src="__SITE__/js/jquery-1.7.1.min.js"></script>
+<style type="text/css">  
+        /*70px是图像和按钮的高度
+		*{margin: 0; padding: 0;}  */
+        #imgListUl{list-style: none;overflow: hidden;height:168px; background:#E6E6E6}  
+        #imgListUl li{margin-left:13px;margin-right:13px;float: left; margin-top:9px;}  
+        #imgList{left:30px;height:168px;float: left;width:592px;position:absolute;overflow: hidden;}  
+        #swihLeft{ background: url(__SITE__/images/leftward.png) 0 0 no-repeat;display: block;height:168px;width: 30px;}  
+        #swihRight{background:url(__SITE__/images/rightward.png) 0 0 no-repeat;display: block;height:168px;width: 30px;}  
+        /*左按钮层——为了占位*/
+		#swihLeftDiv{width: 30px;height: 70px;left: 0;position: absolute;}  
+        /*右按钮层——为了占位*/
+		#swihRightDiv{width: 30px;height: 70px;right: 0;position: absolute;}  
+        /*图片*/
+		.Img{height:150px;width:270px;}  
+</style>  
+<script type="text/javascript">   
+        var imgLeftLenght = 0;   
+        var movePx=317;//每次切换的像素(包含图片宽度与间距) 公式：（左右边距+图片宽度）*每次切换的图片数量  
+        var imgNum=2;//每次显示的图片个数__修改此处必须连同#imgList样式的宽度一起修改公式：（左右边距+图片宽度）*imgNum  
+        var speedSwitch=500;//切换速度(毫秒)  
+        $(document).ready(function() {   
+  
+            /*var imgLiNum = $("#imgList>ul>li").length;   
+            $("#swihLeft").click(function() {   
+                imgLeftLenght += movePx;   
+                $("#imgListUl").animate({ marginLeft: imgLeftLenght }, 500);   
+                $("#swihRight").css("display", "block");   
+                if (imgLeftLenght == 0) {   
+                    $("#swihLeft").css("display", "none");   
+                }   
+            }).css("display", "none");   
+  
+            $("#swihRight").css("display", "none").click(function() {   
+                imgLeftLenght -= movePx;   
+                $("#imgListUl").animate({ marginLeft: imgLeftLenght }, speedSwitch);   
+                $("#swihLeft").css("display", "block");   
+                if (0 == (imgLiNum - imgNum) * movePx + imgLeftLenght) {  
+                    $("#swihRight").css("display", "none");   
+                }   
+            });   
+  
+            if (imgLiNum > imgNum) {   
+                $("#swihRight").css("display", "block");   
+            }   
+            $("#imgListUl>li").click(function() {   
+                $(this).siblings().removeClass("boRed");   
+                $(this).addClass("boRed");   
+            })  */ 
+            
+            var ul = $('#imgListUl');
+			var li = $('#imgListUl li');
+			var left = $('#swihLeft');
+			var right = $('#swihRight');
+			ul.css('width',li.length*296);
+			var lc = 0;
+			var rc = li.length-2;	
+		
+			left.click(function(){
+				if(rc < 1){
+					return;
+				}
+				rc--;
+				lc++;
+				ul.animate({marginLeft:'-=296px'},600);
+			});		
+		
+			right.click(function(){
+				if(lc < 1){
+					return;
+				}
+				lc--;
+				rc++;
+				ul.animate({marginLeft:'+=296px'},1000);
+			});
+  
+        })   
+</script>  
+<div id="contentWrap">
+	<div id="content">
+		<div id="left">
+			<include file="Company:left"/>
+		</div>
+		<div id="right">
+			<img src="{$info.starLargeImg}" onerror="$(this).remove()" width="735"/><br/>
+			<if condition="$info['logo']">
+			<span class="loc" id="locSpan"  style="height:auto; padding-bottom:10px;">
+			<img src="{$info.logo}" onerror="$('#locSpan').css('border-bottom','none');$(this).remove()"/>
+			</span>
+			</if>
+			<span  class="loc" id="locSpan2" style="border:0px;margin-top:20px;">{$info.starName}</span>
+			
+           <div class="content_about" style="margin:10px 0;">
+				{$info.starContent}
+			</div>
+            
+			<!-- image galley begin -->
+			<if condition="$info['images']">
+			<div style="display:inline-block;width:652px; float:left;height:200px;position: relative;;overflow: hidden;">  
+				<div id="swihLeftDiv">  
+					<a id="swihLeft" href="javascript:void(0);"></a>  
+				</div>  
+				<div id="imgList">  
+					<ul id="imgListUl"> 
+						<volist name="info['images']" id="photo"> 
+							<li>  
+								<img class="Img" src='{$photo}' />  
+							</li>  
+						</volist>
+					</ul>  
+				</div>  
+				<div id="swihRightDiv">  
+					<a id="swihRight" href="javascript:void(0);"></a>  
+				</div>  
+			</div>  
+			</if>
+			<!-- image galley end -->
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+
+		</div>
+	</div>
+</div>

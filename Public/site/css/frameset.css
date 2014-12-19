@@ -1,0 +1,173 @@
+@charset "utf-8";
+/*页面字体，背景等 全局样式,*/
+html,body,div,span,
+h1,h2,h3,h4,h5,h6,p,
+a,img,strong,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,thead,tr,th,td{
+margin:0;
+padding:0;
+border:0 none;
+outline:0;
+font-size:12px;
+color:#000;
+font-family: 微软雅黑,Arial, Helvetica, sans-serif;
+/*background:transparent;*/
+}
+
+
+body{background:#F3F3F3; margin:0 auto;}
+
+Ol,ul{list-style: none outside none;}
+span.spanLine{clear:both;display:block;height:10px;width:100%;}
+span.channelLocationTip{text-align:left;text-indent:1em;font-size:13px;display:inline-block;border-bottom:1px solid #909090;font-weight:bold;color:#666;height:30px;width:100%;}
+a:link{text-decoration: none;color:#000;}
+a:visited{text-decoration: none;color: #000;}
+a:hover{text-decoration: none;color: #3FA3EF;}
+a:active{text-decoration: none;color: #3FA3EF;}
+.clear{clear:both;}
+
+
+/*页首*/
+#headerWrap,#footerWrap,#contentWrap{text-align:center;width:100%; margin:0 auto;background:#f0f0f0;/*border:1px solid red;*/}
+#headerWrap{height:130px;}
+#headerLine{ background:#3fa3ef;height:10px; width:100%}
+#header,#content,#footer{margin:0 auto;text-align:center;width:960px;background:#fff;display:inline-block; /*border:1px solid yellow;*/}
+#header{height:130px;line-height:130px;}
+ 
+#footer a{ font-size:11px;}
+#footer{ font-size:11px; overflow:hidden;}
+#header #logo{display:inline-block;width:160px;height:108px;line-height:108px;float:left;margin-top:20px;background:url('../images/logo.jpg') no-repeat; margin-left:55px; _margin-left:15px;}
+
+#header #favBar{display:inline-block;float:right;margin-right:55px; _margin-right:25px;width:670px;display:inline-block;margin-top:30px;height:98px;line-height:98px;}
+#header #favBar #searchBar{display:inline-block;text-align:left;height:20px;line-height:17px;width:180px;float:right;font-size:12px; padding-right:15px;}
+#header #favBar #searchBar #searchKeyword{float:left;height:16px;line-height:17px;width:150px;font-size:12px;margin-left:10px;}
+#header #favBar #searchBar #btnSearch{float:right;height:19px;line-height:17px;margin-top:10px;margin-right:5px;width:19px;}
+
+#header #headerMenu{display:inline-block;height:40px;line-height:40px;width:640px;margin-top:35px;text-align:right; float:right;}
+
+ 
+#contentWrap #content #left{float:left;width:215px;margin-right:5px;border:0px;display:inline-block;/*border:1px solid red;*/}
+#contentWrap #content #left #leftMenu{position:relative;float:right;top:0px;width:180px;text-align:left;margin-top:-15px;_margin-top:-17px;background:#fff; left:10px;}
+#leftMenu span{border-top:1px dotted #c4c4c4;height:1px;line-height:1px;width:130px;display:inline-block;}
+#leftMenu span.channel{height:40px;line-height:40px;font-size:15px;text-align:center;display:inline-block;width:130px;color:#000;font-family:"宋体"; font-weight:bold;}
+#leftMenu a{height:40px;line-height:40px;font-size:14px;text-align:center;display:inline-block;width:130px;color:#000; font-family:"宋体"}
+#leftMenu a:hover,#leftMenu a.action{background:url('../images/btn_arrow.jpg') no-repeat right;}
+
+#contentWrap #content #right{float:right;width:735px;display:inline-block;/*border:1px dotted red;*/}
+#contentWrap #content #right span.poster_about{display:inline-block;width:730px;height:88px;padding:0px;margin:0px;}
+#contentWrap #content #right span.poster_speech{display:inline-block;width:730px;height:88px;padding:0px;margin:0px;}
+#contentWrap #content #right span.poster_introduce{display:inline-block;width:730px;height:270px;padding:0px;margin:0px;}
+#contentWrap #content #right span.poster_news{display:inline-block;width:735px;height:104px;padding:0px;margin:0px;}
+#contentWrap #content #right span.poster_job{display:inline-block;width:735px;height:267px;padding:0px;margin:0px;}
+#contentWrap span.poster_home{ width:100%;height:555px;padding:0px;margin:0px;}
+#contentWrap #content #right span.poster_development_process{display:inline-block;width:730px;height:278px;padding:0px;margin:0px;}
+
+
+#contentWrap #content span.poster_sub_companys{display:inline-block;width:100%;height:277px;padding:0px;margin:0px;}
+#contentWrap #content #right span.poster_sub_company_shenda{display:inline-block;width:735px;height:270px;padding:0px;margin:0px;}
+#contentWrap #content #poster_sub_companys{display:inline-block;width:960px;height:277px;padding:0px;margin:0px;}
+#contentWrap #content #right span.loc{display:inline-block;text-align:left;border-bottom:1px dotted #c4c4c4;color:#004185;font-size:16px;height:35px;line-height:35px;width:660px; float:left;}
+
+#contentWrap #content #right span.loc3{display:inline-block;text-align:left;border-b/ottom:1px dotted #c4c4c4;color:#004185;font-size:16px;height:35px;line-height:35px;width:660px; float:left;}
+
+#contentWrap #content #right span.loc2{display:inline-block;text-align:left;color:#004185;font-size:16px;height:35px;line-height:35px;width:660px; float:left;}
+
+#contentWrap #content #right p{font-size:14px;line-height:28px;color:#000;text-align:left; padding:8px 0px; font-family:"宋体"; display:block;}
+
+/*页脚*/
+#footerWrap,#footerWrap #footer{text-align:center;line-height:50px;}
+#footerWrap #footer{display:inline-block;border-top:1px solid #ccc;color:#000;}
+#footerWrap #footer #smallLogo{ border-left:1px #666 solid;height:30px;width:50px;}
+#footerWrap #footer a{color:#000;}
+#footerWrap #footer a:hover{color:#666;}
+
+
+/*子公司列表*/
+.subCompany{width:864px;margin:10px auto;text-align:center;}
+.subCompany ul li{display:inline-block;float:left;width:245px;padding:0 21px;_padding:0 20px;text-align:left; border-right:1px dotted #999; margin-bottom:75px; height:250px;}
+.subCompany ul li span{font-size:16px;color:#023f80;text-align:left;line-height:25px;height:25px; display:block; width:100%; margin-bottom:8px; }
+.subCompany ul li.line{border-left:1px dotted #acacac;padding:10px;border-right:1px dotted #acacac;}
+.subCompany ul li img{border:1px solid #cccccc;}
+.subCompany ul li p{line-height:20px;font-size:12px;color:#464646;margin-top:10px; margin-bottom:20px;font-family:"宋体"; font-size:14px;}
+.subCompany ul li a{display:inline-block;border:1px solid #acacac;font-size:12px;color:#acacac;text-align:left;line-height:16px;height:15px;padding:1px 5px;background:url('../images/bg_btn.jpg') repeat-x; color:#555;}
+.subCompany ul li a:hover{color:#464646}
+
+
+/*发展历程*/
+.storyList{width:600px; float:left;}
+.storyList div.line{line-height:30px;height:35px;font-size:12px;margin:15px 0px; clear:both; }
+.storyList span.year{float:left;display:inline-block;border-bottom:5px solid #3f8ed9;width:110px;text-align:left;font-family:"宋体";font-size:14px;}
+.storyList span.story{float:left;display:inline-block;border-bottom:5px solid #cccccc;width:410px;text-align:left; padding-left:80px;font-family:"宋体"; font-size:14px;}
+
+/*媒体报道*/
+.reportList{display:inline-block;width:700px;margin:10px 0px; text-align:left}
+.reportList div.line{display:inline-block;line-height:30px;height:30px;font-size:12px;margin:15px 10px;border-bottom:1px dotted #cccccc;}
+.reportList span.time{float:right;display:inline-block;width:120px;text-align:left; font-size:14px;}
+.reportList span.media{float:left;display:inline-block;width:120px;text-align:left;}
+.reportList .title{float:left;display:inline-block;width:440px;text-align:left;overflow:hidden; font-size:13px;}
+
+/*招聘列表*/
+.jobList{display:inline-block;width:700px;margin:10px 0px; float:left;}
+.jobList div.row{display:inline-block;line-height:30px;height:30px;font-size:12px;margin:5px 0px;}
+.jobList span.time{float:left;display:inline-block;width:125px;text-align:left; font-family:"宋体"; font-size:14px;}
+.jobList span.time2{float:left;display:inline-block;width:80px;text-align:left; font-family:"宋体"; font-size:14px;}
+.jobList span.bmx{float:left;display:inline-block;width:255px;text-align:left; font-family:"宋体"; font-size:14px;}
+.jobList span.city{float:left;display:inline-block;width:125px;text-align:left; font-family:"宋体"; font-size:14px;}
+.jobList span.bm{float:left;display:inline-block;width:255px;text-align:left; font-family:"宋体"; font-size:14px;}
+.jobList .title{float:left;display:inline-block;width:195px;text-align:left;overflow:hidden; padding-left:40px; font-family:"宋体"; font-size:14px;}
+
+/*招聘信息*/
+.reportList{width:700px;margin:10px 0px; float:left; text-align:left}
+.reportList div.line{line-height:30px;height:35px;font-size:12px;margin:5px 0px;border-bottom:1px dotted #cccccc;}
+.reportList span.time{float:right;display:inline-block;width:120px;text-align:left; font-family:"宋体"; font-size:14px;}
+.reportList span.media{float:left;display:inline-block;width:120px;text-align:left;}
+.reportList .title{float:left;display:inline-block;width:440px;text-align:left;overflow:hidden;}
+
+
+/*公司新闻*/
+.newsList{disp/lay:inline-block;width:700px;margin:20px 0px;}
+.newsList div.line{disp/lay:inline-block;width:660px;line-height:120px;height:125px;font-size:12px;padding:20px 0px;margin: 0px;border-bottom:1px dotted #cccccc;}
+.newsList div.lineLeft{float:left;display:inline-block;border-bottom:1px dotted #cccccc;width:120px;text-align:left;}
+.newsList div.lineLeft img{display:inline-block;border:1px solid #cccccc;padding:1px;width:175px;height:120px;}
+
+.newsList div.lineRight{float:right;display:inline-block;width:460px;height:125px;overflow:hidden;text-align:left;}
+.newsList div.lineRight span.time{display:inline-block;font-size:13px;height:20px;line-height:20px; font-family:"宋体"}
+.newsList div.lineRight span.title{display:inline-block;font-size:13px;height:20px;line-height:20px;overflow:hidden;font-family:"宋体"}
+.newsList div.lineRight p.summary{font-size:12px;overflow:hidden;width:100%;height:60px;line-height:20px;margin-top:5px;text-align:left;}
+.newsList a.more{display:inline-block;font-size:12px;height:20px;line-height:20px;float:right;color:#333;font-style: italic;}
+.newsList a:hover.more{display:inline-block;font-size:12px;height:20px;line-height:20px;float:right;color:#4c4c4c;}
+
+/*翻页按钮*/
+.btnTurnPage{display:inline-block;font-size:12px;color:#cccccc;width:350px;}
+.btnTurnPage a.cn{display:inline-block;font-size:12px;color:#4c4c4c;line-height:16px;height:16px;width:44px; text-align:center}
+.btnTurnPage a{display:inline-block;font-size:12px;color:#4c4c4c;line-height:16px;height:16px;width:20px;}
+.btnTurnPage a:hover.cn{display:inline-block;font-size:12px;color:#ffffff;line-height:16px;height:16px;width:44px;background:#cccccc;text-align:center}
+.btnTurnPage a:hover{display:inline-block;font-size:12px;color:#ffffff;line-height:16px;height:16px;width:20px;background:#cccccc;}
+.btnTurnPage span.cn{display:inline-block;font-size:12px;color:#ffffff;line-height:16px;height:16px;width:auto;background:#ccc; padding:0 5px}
+.btnTurnPage2 span.cn{display:inline-block;font-size:12px;color:#ffffff;line-height:16px; padding:0 5px; height:16px;background:#ccc;}
+
+/*内容页*/
+.directory{display:inline-block;width:660px;margin:5px 0px; float:left; text-align:left;}
+.directory .row{line-height:25px;height:25px;border-bottom:1px dotted #ccc;width:660px;}
+.directory .rowTitle{float:left;display:inline-block;font-size:14px;height:20px;line-height:20px;}
+.row a:link .rowTitle,.row a:visited .rowTitle{ color:#333;}
+.row a:hover .rowTitle,.row a:active .rowTitle{ color:#3FA3EF;}
+.directory .rowTime{float:right;display:inline-block;font-size:12px;height:20px;line-height:20px;}
+
+.content_about{width:660px;margin:20px auto; float:left; text-align:left; line-height:25px; text-align:left;padding: 8px 0px; }
+
+.article{display:inline-block;width:730px;margin:20px 0px;}
+.article #articleHead{line-height:30px;border-bottom:1px dotted #4c4c4c; width:660px; float:left; margin-bottom:20px;}
+.article #articleHead span.title{float:left;font-size:15px;line-height:20px; display:block; font-family:"宋体"; width:580px; text-align:left; font-weight:bold;}
+.article #articleHead span.time{float:right;display:inline-block;font-size:12px;height:20px;line-height:20px; font-family:"宋体";}
+.articleContent{width:700px;margin-bottom:250px;}
+
+
+.jobDes{margin-top:3px;color:#666;font-size:12px;width:100%;display:inline-block;text-align:left;height:auto;line-height:25px;}
+.jobReq{margin-top:20px;color:#004185;font-size:12px;width:100%;display:inline-block;text-align:left;height:25px;line-height:25px; font-family:"宋体"; font-size:14px;}
+
+#d_aniu{ width:200px; height:20px; margin:25px 0; float:right; }
+.d_anniu{ width:120px; height:20px;padding-left: 7px;}
+.a_img1{ display:block; float:left;}

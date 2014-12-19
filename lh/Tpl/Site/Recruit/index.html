@@ -1,0 +1,41 @@
+<div id="contentWrap">
+	<div id="content">
+    <div id="left">
+        <include file="Recruit:left"/>
+    </div>
+        
+    <div id="right">
+		{:get_ads('rLT')}<br/>
+        <div style="font-size:16px; text-align:left; color:#004185; margin:15px 0;">招聘信息</div>
+		<div class="jobList">
+			<div class="row" style="border-bottom:1px dotted #cccccc;"><span class="title">职位</span><span class="bm">部门</span><span class="city">工作地点</span><span class="time2">发布日期</span></div>
+			<volist name="recruitInfos" id="info">
+				<div class="row">
+					<a href="{:U('Recruit/view?id='.$info['id'])}" class="title" style="color:#004185;">{$info.officeName}</a>
+                    <span class="bmx">{$info.companyName}</span>
+                    <span class="time">{$info.address}</span>
+                    <span class="time2">{:client_date($info['createTime'])}</span>
+					
+					
+				</div>
+			</volist>
+			<br/><br/>
+			<div class="line" style="border:0px;margin-bottom:50px;">
+				<div class="btnTurnPage" style="float:right;">
+					{$page}
+				</div>
+			</div>
+            <div style="width:100%; height:auto; padding:35px 0; border-top:1px #ccc solid; border-bottom:1px #ccc solid; text-align:left;">
+			<div style="font-size:16px; color:#004185;">联系方式</div>
+			 <div style="padding-left:40px; margin:15px 0; display:block;">{$setting.contact}</div>
+            </div>
+			<div id="d_aniu">
+	           <div class="d_anniu">
+	               <a class="a_img1" href="javascript:window.print()"><img src="__SITE__/images/dy.png" style="border:none;"></a>
+	               <img src="__SITE__/images/top.png" style="border:none; float:right" onclick="$('body').animate(reTop(),50);">
+	           </div>
+    	 	</div>
+		</div>
+        </div>
+	</div>
+</div>
