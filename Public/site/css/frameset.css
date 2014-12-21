@@ -38,22 +38,22 @@ a:active{text-decoration: none;color: #3FA3EF;}
  
 #footer a{ font-size:11px;}
 #footer{ font-size:11px; overflow:hidden;}
-#header #logo{display:inline-block;width:160px;height:108px;line-height:108px;float:left;margin-top:20px;background:url('../images/logo.jpg') no-repeat; margin-left:55px; _margin-left:15px;}
+#header #logo{display:inline-block;width:160px;height:108px;float:left;margin-top:25px;background:url('../images/logo.jpg') no-repeat; margin-left:25px; _margin-left:15px;}
 
-#header #favBar{display:inline-block;float:right;margin-right:55px; _margin-right:25px;width:670px;display:inline-block;margin-top:30px;height:98px;line-height:98px;}
+#header #favBar{display:inline-block;float:right;margin-right:25px; _margin-right:25px;display:inline-block;margin-top:30px;height:98px;line-height:98px;}
 #header #favBar #searchBar{display:inline-block;text-align:left;height:20px;line-height:17px;width:180px;float:right;font-size:12px; padding-right:15px;}
 #header #favBar #searchBar #searchKeyword{float:left;height:16px;line-height:17px;width:150px;font-size:12px;margin-left:10px;}
 #header #favBar #searchBar #btnSearch{float:right;height:19px;line-height:17px;margin-top:10px;margin-right:5px;width:19px;}
 
-#header #headerMenu{display:inline-block;height:40px;line-height:40px;width:640px;margin-top:35px;text-align:right; float:right;}
+#header #headerMenu{display:inline-block;height:40px;line-height:40px;margin-top:35px;text-align:right; float:right;}
 
  
 #contentWrap #content #left{float:left;width:215px;margin-right:5px;border:0px;display:inline-block;/*border:1px solid red;*/}
-#contentWrap #content #left #leftMenu{position:relative;float:right;top:0px;width:180px;text-align:left;margin-top:-15px;_margin-top:-17px;background:#fff; left:10px;}
+#contentWrap #content #left #leftMenu{position:relative;float:right;top:0px;width:180px;text-align:left;background:#fff; left:10px;}
 #leftMenu span{border-top:1px dotted #c4c4c4;height:1px;line-height:1px;width:130px;display:inline-block;}
 #leftMenu span.channel{height:40px;line-height:40px;font-size:15px;text-align:center;display:inline-block;width:130px;color:#000;font-family:"宋体"; font-weight:bold;}
 #leftMenu a{height:40px;line-height:40px;font-size:14px;text-align:center;display:inline-block;width:130px;color:#000; font-family:"宋体"}
-#leftMenu a:hover,#leftMenu a.action{background:url('../images/btn_arrow.jpg') no-repeat right;}
+#leftMenu a:hover,#leftMenu a.action{color:#fff; background:#007fcd url('../images/lico.png') no-repeat right center;}
 
 #contentWrap #content #right{float:right;width:735px;display:inline-block;/*border:1px dotted red;*/}
 #contentWrap #content #right span.poster_about{display:inline-block;width:730px;height:88px;padding:0px;margin:0px;}
@@ -171,3 +171,15 @@ a:active{text-decoration: none;color: #3FA3EF;}
 #d_aniu{ width:200px; height:20px; margin:25px 0; float:right; }
 .d_anniu{ width:120px; height:20px;padding-left: 7px;}
 .a_img1{ display:block; float:left;}
+
+/*菜单样式修改*/
+.sideNav{text-align: left;padding:36px 0; width:133px; margin:0 auto; overflow:hidden; background:url(../images/lline.gif) left 36px repeat-x;}
+.sideNav h2{background:url(../images/lline.gif) bottom repeat-x; height:41px; line-height:41px; font-size: 15px; font-family: "宋体"; overflow:hidden; padding-left:30px; color:#000;}
+.sideNav li{background:url(../images/lline.gif) bottom repeat-x; padding-bottom:1px;}
+.sideNav a{display:block; height:41px; line-height:41px; overflow:hidden; font-size:14px; color:#000; padding-left:30px;  font-family: "宋体";}
+.sideNav a:hover, .sideNav .aNow{background:#007fcd url(../images/lico.png) right center no-repeat; color:#fff;}
+.sideNav .aNow1{background:url(../images/ico1.gif) right center no-repeat;}
+.sideNav li div{background:url(../images/lline.gif) top repeat-x; padding-top:1px; padding:5px 0;}
+.sideNav li li{background:none;}
+.sideNav li li a{background:none; height:30px; line-height:30px; color:#666; font-size:12px;  font-family: "宋体";}
+.sideNav li li a:hover, .sideNav li li .aNow{background:#007fcd;}

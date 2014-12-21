@@ -1,8 +1,18 @@
-<div id="leftMenu"><br/><br/>
-	<span class="channel">旗下企业</span><br/>
-	<span>&nbsp;</span><br/>
-	<volist name="comList" id="coml">
-		<a href="{:U('Company/view?id='.$coml['id'])}"  <if condition="$coml['id'] eq $info['id']">class="action"</if>>{$coml.shortName}</a><br/>
-		<span>&nbsp;</span><br/>
-	</volist>	
+<div class="sideNav">
+    <h2>关于联泓</h2>
+    <ul>
+        <li><a href="{:U('Info/speech')}" <if condition="strtolower(ACTION_NAME) == 'speech'">class="aNow"</if>>总裁致辞</a></li>
+        <li><a href="{:U('Info/company')}" <if condition="strtolower(MODULE_NAME) == 'company'">class="aNow1"</if>>集团介绍</a>
+            <div>
+                <ul>
+                    <volist name="comList" id="coml">
+                        <li><a href="{:U('Company/view?id='.$coml['id'])}" <if condition="$info['id'] eq $coml['id']"> class="aNow"</if>>{$coml.shortName}</a></li>
+                    </volist>
+                </ul>
+            </div>
+        </li>
+        <li><a href="{:U('Info/team')}" <if condition="strtolower(ACTION_NAME) == 'team'">class="aNow"</if>>管理团队</a></li>
+        <li><a href="{:U('Info/organ')}" <if condition="strtolower(ACTION_NAME) == 'organ'">class="aNow"</if>>组织架构</a></li>
+        <li><a href="{:U('Info/course')}" <if condition="strtolower(ACTION_NAME) == 'course'">class="aNow"</if>>发展历程</a></li>
+    </ul>
 </div>
