@@ -28,6 +28,7 @@ return array(
 	/*类型配置*/
 	'DICT_TYPES'=>array(
 					array('type'=>'news','name'=>'联泓动态'),
+                    array('type'=>'product', 'name'=>'产品分类'),
 					//array('type'=>'media','name'=>'媒体新闻'),
 				),
 	'SINGLE_TYPES'=>array(

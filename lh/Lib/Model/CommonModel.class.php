@@ -2,7 +2,7 @@
 /**
  * 模型公共部分
  */
-class CommonModel extends Model{
+class CommonModel extends RelationModel{
 	/**
 	 * 插入数据库关键词过滤
 	 */

@@ -121,3 +121,17 @@ span.redd{color:red;}
 
 .footerF{ background:#fefefe; color:#949393; font:12px "微软雅黑"; line-height:30px;}
 .footerF div{ width:390px; margin:auto;}
+
+table td.tree-content {
+    padding: 0 20px;
+    text-align: left;
+}
+
+#attrTabs li {
+    width: auto;
+    clear: none;
+}
+
+#attrTabs .action {
+    display: none;
+}
