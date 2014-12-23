@@ -32,27 +32,47 @@
         </ul>
         <div id="attrTabs">
             <ul>
-                <volist name="productInfo.attributes" id="attr">
-                    <li>
-                        <a href="#tabs-{$attr.id}" data-attrid="{$attr.id}">
-                            <strong class="attrName">{$attr.attrName}</strong>
-                            <span class="action">
-                                <input type="text" name="attrName[{$attr.id}][]" value="{$attr.attrName}"/>
+                <if condition="$productInfo['id']">
+                    <volist name="productInfo.attributes" id="attr">
+                        <li>
+                            <a href="#tabs-{$attr.id}" data-attrid="{$attr.id}">
+                                <strong class="attrName">{$attr.attrName}</strong>
+                            </a>
+                            <div class="action">
+                                <input type="text" name="attrName[{$attr.id}][]" value="{$attr.attrName}" />
                                 <button class="edit">修改</button>
-                                <button class="delete">删除</button>
-                            </span>
+                                <button class="delete" data-attrid="{$attr.id}">删除</button>
+                            </div>
+                        </li>
+                    </volist>
+                <else/>
+                    <li>
+                        <a href="#tabs-0" data-attrid="0">
+                            <strong class="attrName">产品说明</strong>
                         </a>
+                        <div class="action">
+                            <input type="text" name="attrName[]" value="产品说明" />
+                            <button class="edit">修改</button>
+                            <button class="delete">删除</button>
+                        </div>
                     </li>
-                </volist>
+                </if>
             </ul>
-            <volist name="productInfo.attributes" id="attr">
-                <div id="tabs-{$attr.id}">
-                    <textarea id="editor_id_{$attr.id}" class="attr_editor" name="attrValue[{$attr.id}][]" style="width:670px;height:300px;">{$attr.attrValue}</textarea>
+            <if condition="$productInfo['id']">
+                <volist name="productInfo.attributes" id="attr">
+                    <div id="tabs-{$attr.id}">
+                        <textarea id="editor_id_{$attr.id}" class="attr_editor" name="attrValue[{$attr.id}][]" style="width:670px;height:300px;">{$attr.attrValue}</textarea>
+                    </div>
+                </volist>
+            <else/>
+                <div id="tabs-0">
+                    <textarea id="editor_id_0" class="attr_editor" name="attrValue[]" style="width:670px;height:300px;"></textarea>
                 </div>
-            </volist>
+            </if>
         </div>
         <ul class="addad">
             <li>
+                <input type="hidden" name="delAttrs" id="delAttrs" value="" />
                 <input type="hidden" name="id" value="{$productInfo.id}" />
                 <input class="submit" name="setSubmit" type="submit" value="保 存" />
                 <input class="reset" name="backBtn" type="reset" value="取 消" onclick="window.history.back(-1);"/>
@@ -82,59 +102,53 @@
 
         tabs.delegate('ul li', 'click', function(){
             var tabHead = jq(this);
-            tabHead.find('.attrName').hide();
+            tabHead.find('.attrName').parent().hide();
             tabHead.find('.action').show();
+            tabHead.delegate('.action input', 'click', function(e){
+                e.stopPropagation();
+                e.preventDefault();
+            });
             tabHead.delegate('.action .edit', 'click', function(e){
                 e.stopPropagation();
                 e.preventDefault();
                 tabHead.find('.action').hide();
                 tabHead.find('.attrName').text(tabHead.find('.action input').val());
-                tabHead.find('.attrName').show();
+                tabHead.find('.attrName').parent().show();
             });
 
-            tabs.delegate( ".action .delete", "click", function(e) {
+            tabHead.delegate( ".action .delete", "click", function(e) {
                 e.stopPropagation();
                 e.preventDefault();
+                var delAttrs = jq("#delAttrs").val();
+                var attrId = jq(this).attr('data-attrid');
+                if(attrId && attrId.length > 0) {
+                    if(delAttrs.length > 0) {
+                        delAttrs = delAttrs + "," + attrId;
+                    } else {
+                        delAttrs = attrId;
+                    }
+                }
+
+                jq("#delAttrs").val(delAttrs);
                 var panelId = jq( this ).closest( "li" ).remove().attr( "aria-controls" );
-                console.log(panelId);
-                $( "#" + panelId ).remove();
+                jq( "#" + panelId ).remove();
                 tabs.tabs( "refresh" );
+
             });
         });
 
-        jq("#attrTabs ul li").click(function(){
-            var tabHead = jq(this);
-            tabHead.find('.attrName').hide();
-            tabHead.find('.action').show();
-            tabHead.find('.action .edit').click(function(e){
-                e.stopPropagation();
-                e.preventDefault();
-                tabHead.find('.action').hide();
-                tabHead.find('.attrName').text(tabHead.find('.action input').val());
-                tabHead.find('.attrName').show();
-            });
-            tabs.delegate( ".action .delete", "click", function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                var panelId = jq( this ).closest( "li" ).remove().attr( "aria-controls" );
-                console.log(panelId);
-                $( "#" + panelId ).remove();
-                tabs.tabs("option", "active", tabs.find('.ui-tabs-panel').length - 1);
-                tabs.tabs( "refresh" );
-            });
 
-        });
 
         var tabNavHtml =
                 '<li>' +
                     '<a href="#{href}">' +
-                        '<strong class="attrName">新的属性</strong>' +
-                        '<span class="action">' +
-                            '<input type="text" name="attrName[]" value="新的属性"/>' +
-                            '<button class="edit">修改</button>' +
-                            '<button class="delete">删除</button>' +
-                        '</span>' +
+                        '<strong class="attrName">产品说明</strong>' +
                     '</a>' +
+                    '<div class="action">' +
+                        '<input type="text" name="attrName[]" value="产品说明"/>' +
+                        '<button class="edit">修改</button>' +
+                        '<button class="delete">删除</button>' +
+                    '</div>' +
                 '</li>';
 
         var tabContentHtml = '<div id="tabs-#{id}"><textarea id="editor_id_#{id}" class="attr_editor" name="attrValue[]" style="width:670px;height:300px;"></textarea></div>';

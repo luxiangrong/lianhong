@@ -9,13 +9,30 @@
 class ProductAction extends CommonAction {
 
     public function index() {
+        $dictMod = D('Dict');
+
+        $dicts = $this->getDictsAsTree();
+        $this->assign('dicts',$dicts);
+
         $productMod = D('Product');
         import('@.ORG.Util.Page');//引入分页类
         $count = $productMod->where()->count();//计算总记录数
         $Page = new Page($count,25); //实例化分页类，每页显示数
         $show = $Page->show();
 
-        $list = $productMod->join(' n left join __DICT__ d on d.id=n.type')->field('n.*,d.dictName as typeName')->where()->order('id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $where = array();
+        if(isset($_REQUEST['type'])) {
+            $type = $_REQUEST['type'];
+            $childrenDicts = $dictMod->array_multi_array($dictMod->children($type));
+            $where['type'] = array('in', array_merge(array($type), array_keys($childrenDicts)));
+
+            $this->assign('type',$type);
+        }
+        if(isset($_REQUEST['pname'])) {
+            $where['name'] = array('like', '%'.$_REQUEST['pname'].'%');
+        }
+
+        $list = $productMod->join(' n left join __DICT__ d on d.id=n.type')->field('n.*,d.dictName as typeName')->where($where)->order('id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
 
         $this->assign('list',$list);
         $this->assign('page',$show);
@@ -24,19 +41,22 @@ class ProductAction extends CommonAction {
 
     public function edit() {
         $productMod = D('Product');
+        $productAttributeMod = D('ProductAttribute');
         if($this->isPost()) {
             $data = $productMod->create();
 
-//            print '<pre>';
-//            print_r($_REQUEST);
-//            print '<pre>';
+            $delAttrIds = $_POST['delAttrs'];
+
+            if(!empty($delAttrIds)) {
+                $condition['id'] = array('in', $delAttrIds);
+                $productAttributeMod->where($condition)->delete();
+            }
 
             $productAttrs = array();
             $attrNames = $_POST['attrName'];
             $attrValues = $_POST['attrValue'];
             foreach($attrNames as $key => $attrName) {
                 $productAttrs[$key] = array(
-
                     'updateTime' => time()
                 );
                 if(is_array($attrName)) {
@@ -90,6 +110,15 @@ class ProductAction extends CommonAction {
         }
         $this->assign('productInfo', $productInfo);
         $this->display();
+    }
+
+    public function del() {
+        $id = $_REQUEST['id'];
+        $productMod = D('Product');
+        $sWhere['id'] = $id;
+        $productMod->relation(true)->delete($id); //删除指定id的记录
+        $this->assign('jumpUrl',U('Product/index'));//跳转到列表页
+        $this->success('删除成功');//提示信息
     }
 
     private function getDictsAsTree() {

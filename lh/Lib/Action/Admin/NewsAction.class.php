@@ -24,7 +24,9 @@ class NewsAction extends CommonAction{
     	
     	$model = D('News');
     	foreach(C('DICT_TYPES') as $key => $val){
-    		$dict[] = $val['type'];
+            if($val['type'] == 'news') {
+    		    $dict[] = $val['type'];
+            }
     	}
     	$dictType = implode(',',$dict);
     	

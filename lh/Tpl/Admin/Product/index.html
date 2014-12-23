@@ -1,7 +1,25 @@
 {// 加载头部公共文件 }
 <include file="Public:header" />
 <div class="sysM">
-    <h3>产品列表>> 【<a href="{:U('Product/edit')}">添加新产品</a>】<br /></h3>
+    <h3>
+        <form method='get' class="fright" name="dict" action="" id="dict">
+            <select name="type"  hidefocus>
+                <volist name="dicts" id="dt">
+                    <if condition="$dt.id eq $type">
+                        <option value="{$dt.id}" selected="selected">{$dt.val}</option>
+                    <else/>
+                        <option value="{$dt.id}" >{$dt.val}</option>
+                    </if>
+                </volist>
+            </select>
+            <input type="hidden" name="a" value="index"/>
+            <input type="hidden" name="m" value="product"/>
+            <input type="hidden" name="g" value="admin"/>
+            <input class="sech" name="pname" type="text" value="{$Think.get.pname}">
+            <input class="serc" type="submit" value="" id="subBtn">
+        </form>
+        产品列表>> 【<a href="{:U('Product/edit')}">添加新产品</a>】<br />
+    </h3>
     <table cellspacing="0" cellpadding="0">
         <thead>
         <tr>
