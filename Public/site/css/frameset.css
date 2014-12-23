@@ -40,7 +40,7 @@ a:active{text-decoration: none;color: #3FA3EF;}
 #footer{ font-size:11px; overflow:hidden;}
 #header #logo{display:inline-block;width:160px;height:108px;float:left;margin-top:25px;background:url('../images/logo.jpg') no-repeat; margin-left:25px; _margin-left:15px;}
 
-#header #favBar{display:inline-block;float:right;margin-right:25px; _margin-right:25px;display:inline-block;margin-top:30px;height:98px;line-height:98px;}
+#header #favBar{width: 710px; display:inline-block;float:right;margin-right:25px; _margin-right:25px;display:inline-block;margin-top:30px;height:98px;line-height:98px;}
 #header #favBar #searchBar{display:inline-block;text-align:left;height:20px;line-height:17px;width:180px;float:right;font-size:12px; padding-right:15px;}
 #header #favBar #searchBar #searchKeyword{float:left;height:16px;line-height:17px;width:150px;font-size:12px;margin-left:10px;}
 #header #favBar #searchBar #btnSearch{float:right;height:19px;line-height:17px;margin-top:10px;margin-right:5px;width:19px;}
