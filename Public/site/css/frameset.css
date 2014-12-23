@@ -172,6 +172,24 @@ a:active{text-decoration: none;color: #3FA3EF;}
 .d_anniu{ width:120px; height:20px;padding-left: 7px;}
 .a_img1{ display:block; float:left;}
 
+
+/*新增产品样式*/
+.fl{float:left;}
+.fr{float:right;}
+
+.clear_f{clear:both; height:0px; padding:0px; margin:0px; display:block; _display:inherit;}
+.h10{height:10px; overflow:hidden; clear:both;}
+.h50{height:50px; overflow:hidden; clear:both;}
+
+.wal{width:960px; margin:0px auto; overflow:hidden;}
+.font{font-family:"微软雅黑";}
+.blue, .wal a:hover{color:#007fcd;}
+.pageBg{background:#FFF; min-height:500px; _height:500px;}
+.w735{width:735px; overflow:hidden;}
+.w720{width:720px; overflow:hidden;}
+.w222{width:222px; overflow:hidden;}
+.w211{width:211px; padding:10px 0 0 11px; overflow:hidden;}
+
 /*菜单样式修改*/
 .sideNav{text-align: left;padding:36px 0; width:133px; margin:0 auto; overflow:hidden; background:url(../images/lline.gif) left 36px repeat-x;}
 .sideNav h2{background:url(../images/lline.gif) bottom repeat-x; height:41px; line-height:41px; font-size: 15px; font-family: "宋体"; overflow:hidden; padding-left:30px; color:#000;}
@@ -183,3 +201,47 @@ a:active{text-decoration: none;color: #3FA3EF;}
 .sideNav li li{background:none;}
 .sideNav li li a{background:none; height:30px; line-height:30px; color:#666; font-size:12px;  font-family: "宋体";}
 .sideNav li li a:hover, .sideNav li li .aNow{background:#007fcd;}
+
+.pageNow{height:36px; line-height:36px; margin-right:22px; border-bottom:#ccc solid 1px; font-family:"宋体"; color:#666;}
+.pageNow b{color:#000; font-family:"宋体";}
+.pageNow a{color:#666; font-family:"宋体";}
+
+.pageBtn{height:45px; width:715px; overflow:hidden; text-align:right; padding-top:65px;}
+.pageBtn a{padding-left:2px;}
+
+.tabContent{display:none;}
+
+.sideList li{height:55px; padding-top:14px; padding-left:55px; color:#fff; overflow:hidden; background:#3fa3ef url(../images/line.gif) bottom no-repeat; position:relative; font-family:"微软雅黑"; font-size:14px;}
+.sideList .imgDiv{position:absolute; left:10px; top:15px;}
+.sideList li div{font-size:16px; color: #fff}
+.sideList li div span{font-size:10px; padding-left:10px; text-transform:uppercase;color: #fff}
+/*.sideList .li_01{background:#f39803;}*/
+
+.sideNav1{border:#ddd solid 1px; font-family:"微软雅黑"; border-bottom:0px;}
+.sideNav1 h1{font-size: 16px; height:33px; line-height:33px; padding-left:12px; border-bottom:#fff solid 1px; background:#0779bf; font-weight:400; color:#fff;}
+.sideNav1 h2 a, .sideNav1 h2 a:hover{font-size: 14px; display:block; height:30px; line-height:30px; background:#3fa3ef; padding-left:12px; font-weight:400; color:#fff;}
+.sideNav1 li{background:url(../images/lline.gif) bottom repeat-x;}
+.sideNav1 li a{padding-left:40px; background:url(../images/limg3_1.gif) 28px center no-repeat; height:30px; line-height:29px; display:block;}
+.sideNav1 li a:hover, .sideNav1 li .aNow{background:url(../images/limg3_2.gif) 28px center no-repeat; color:#0779bf;}
+
+.about{width:715px; overflow:hidden; line-height:24px; font-size:14px; padding-right:23px; text-align:justify;}
+.about h2, .about h1{padding:30px 0; color:#007fcd;}
+
+.company{background:#e6e6e6; height:160px; width:651px; padding-top:10px; overflow:hidden; position:relative; margin-top:60px;}
+.company .leftBtn{display:block; width:9px; height:31px; background:url(../images/limg9_1.png) center top no-repeat;  position:absolute; z-index:10; left:10px; top:70px;}
+.company .rightBtn{display:block; width:9px; height:31px; background:url(../images/limg9_2.png) center top no-repeat; position:absolute; z-index:10; right:10px; top:70px;}
+.company .list{width:590px; overflow:hidden; margin:0 auto;}
+.company li{float:left; width:295px; overflow:hidden; text-align:center;}
+
+.productTab{font-size:14px; height:64px; line-height:64px; overflow:hidden; position:relative;}
+.productTab li{font-size:14px; float:left; padding:0 16px 0 18px; background:url(../images/lico1.gif) left center no-repeat; cursor:pointer; position:relative; left:-18px;}
+.productTab .liNow{color:#0779bf;}
+
+.productCon li{float:left; width:217px; height:215px; overflow:hidden; padding-right:23px; text-align:center;}
+.productCon .name{padding-top:10px;}
+.productCon a{color:#000;}
+
+.productShowCon{font-family:"微软雅黑"; padding-top:15px;}
+.productShowCon .name{padding:0 0 15px 0; font-size:18px;}
+.productShowCon .content{width:690px; overflow:hidden; line-height:24px; color:#000; text-align:justify;}
+.productShowCon .imgDiv{padding:0 0 15px 0;}

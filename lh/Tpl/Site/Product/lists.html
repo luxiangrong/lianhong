@@ -1,0 +1,71 @@
+<div class="wal">
+    <div class="pageBg">
+        <!--wal-->
+        <div><img src="__SITE__/images/limg960.jpg"></div>
+        <div class="h10"></div>
+        <div class="fl w211">
+            <include file="Product:sideNav"/>
+        </div>
+        <div class="fr w720">
+            <div class="pageNow">
+                <a href="">首页</a> &gt;
+                <a href="{:U('Product/lists')}">产品概览</a> &gt;
+                <notempty name="currentDict.parent">
+                    <a href="javascript:void(0);">{$currentDict.parent.dictName}</a> &gt;
+                </notempty>
+                <b>{$currentDict.dictName}</b></div>
+            <!--内容-->
+            <div class="product">
+                <div class="tab productTab font">
+                    <ul>
+                        <volist name="currentDict.children" id="childDict">
+                            <li <eq name="i" value="1">class="liNow"</eq>>{$childDict.dictName}</li>
+                        </volist>
+                    </ul>
+                </div>
+                <div class="tabContentDiv font">
+                    <volist name="currentDict.children" id="childDict">
+                        <div class="tabContent productCon" style="display: none;">
+                            <eq name="childDict.products|count" value="0">
+                                {$childDict.dictName}--暂无数据
+                            </eq>
+                            <ul>
+                                <volist name="childDict.products" id="product">
+                                <li>
+                                    <div class="imgDiv"><a href="{:U('Product/view?pid='.$product['id'])}"><img src="{$product.listImg}"></a></div>
+                                    <div class="name"><a href="{:U('Product/view?pid='.$product['id'])}">{$product.name}</a></div>
+                                </li>
+                                </volist>
+                            </ul>
+                            <span class="clear_f"></span>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="h50"></div>
+            <!--内容End-->
+        </div>
+        <span class="clear_f"></span>
+        <!--walEnd-->
+    </div>
+</div>
+<script>
+    $(function(){
+        //--选择卡
+        $('.tabContentDiv').find('.tabContent:first').show();
+        $('.tab').each(function(i){
+            $(this).find('li').each(function(ii){
+                $(this).hover(
+                        function(){
+                            $('.tab').eq(i).find('li').removeClass('liNow');
+                            $(this).addClass('liNow');
+                            $('.tabContentDiv').eq(i).find('.tabContent').hide();
+                            $('.tabContentDiv').eq(i).find('.tabContent').eq(ii).show();
+                        },
+                        function(){}
+                )
+            })
+        })
+        //
+    })
+</script>

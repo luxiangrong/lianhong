@@ -21,10 +21,22 @@
                 </select>
             </li>
             <li>
-                <span class="addadtit">图片：</span>
-                <input type="text" id="jupload" name="titleImg" value="{$productInfo.titleImg}" />
-                <input type="button" class="reset" id="picBtn" value="上传" />
+                <span class="addadtit">列表图片：</span>
+                <input type="text" id="listImg" name="listImg" value="{$productInfo.listImg}" />
+                <input type="button" class="reset" id="listImgBtn" value="上传" />
+                <if condition="$productInfo['listImg']">
+                    <img src="{$productInfo['listImg']}" width="75" height="75" onerror="jq(this).remove()" />
+                </if>
             </li>
+            <li>
+                <span class="addadtit">标题图片：</span>
+                <input type="text" id="titleImg" name="titleImg" value="{$productInfo.titleImg}" />
+                <input type="button" class="reset" id="titleImgBtn" value="上传" />
+                <if condition="$productInfo['titleImg']">
+                    <img src="{$productInfo['titleImg']}" width="146" height="43" onerror="jq(this).remove()" />
+                </if>
+            </li>
+
             <li>
                 <span class="addadtit">产品说明：</span>
                 <input type="button" class="reset" id="addAttribute" value="添加" />
@@ -169,7 +181,7 @@
             tabs.tabs( "refresh" );
         });
 
-        new AjaxUpload('#picBtn', {
+        new AjaxUpload('#listImgBtn', {
             action :'{:U('Upload/upload')}',//请求目标
                 name:'upfile',//文件参数名
                 multiple:false,//可以多选文件
@@ -178,10 +190,38 @@
                         if(response.msg){
                             alert(response.msg);
                         }else{
-                            jq('#jupload').val(response.file);
+                            jq('#listImg').val(response.file);
+                            var img = jq('#listImg').parent().find('img');
+                            if(img.length) {
+                                img.attr('src', response.file);
+                            } else {
+                                console.log(response.file);
+                                jq('#listImg').parent().append(jq('<img src="' + response.file + '" width="75" height="75" />'));
+                            }
                         }
                     }
-    });
+        });
+
+        new AjaxUpload('#titleImgBtn', {
+            action :'{:U('Upload/upload')}',//请求目标
+                name:'upfile',//文件参数名
+                multiple:false,//可以多选文件
+                onComplete:function(file, response) {
+            var response = eval('('+response+')');
+            if(response.msg){
+                alert(response.msg);
+            }else{
+                jq('#titleImg').val(response.file);
+                var img = jq('#titleImg').parent().find('img');
+                if(img.length) {
+                    img.attr('src', response.file);
+                } else {
+                    console.log(response.file);
+                    jq('#titleImg').parent().append(jq('<img src="' + response.file + '" width="146" height="43" />'));
+                }
+            }
+        }
+        });
 
     });
 </script>

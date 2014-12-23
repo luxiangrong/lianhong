@@ -1,0 +1,62 @@
+<div class="wal">
+    <div class="pageBg">
+        <!--wal-->
+        <div class="fl w211">
+            <include file="Product:sideNav"/>
+        </div>
+        <div class="fr w720">
+            <!--内容-->
+            <div class="pageBanner"><img src="{$product.titleImg}"></div>
+            <div class="pageNow">
+                <a href="{:U('Index/index')}">首页</a> &gt;
+                <a href="javascript:void(0);">产品概览</a> &gt;
+                <volist name="dictChain" id="dict">
+                    <if condition="$i eq $dictChainCount"><b>{$dict.dictName}</b>
+                        <else/>
+                        <a href="{:U('Product/lists?cid='.$dict['id'])}">{$dict.dictName}</a>
+                    </if>
+                    <neq name="i" value="$dictChainCount"> &nbsp;&gt; &nbsp;</neq>
+                </volist>
+
+            </div>
+            <div class="tab productTab font">
+                <ul>
+                    <volist name="product.attributes" id="attr">
+                        <li <eq name="i" value="1">class="liNow"</eq>>{$attr.attrName}</li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="tabContentDiv">
+                <volist name="product.attributes" id="attr">
+                    <div class="tabContent productShowCon" style="display: none;">
+                        <div class="content">{$attr.attrValue}</div>
+                    </div>
+                </volist>
+
+
+            </div>
+        </div>
+        <span class="clear_f"></span>
+        <!--walEnd-->
+    </div>
+</div>
+<script>
+    $(function(){
+        //--选择卡
+        $('.tabContentDiv').find('.tabContent:first').show();
+        $('.tab').each(function(i){
+            $(this).find('li').each(function(ii){
+                $(this).hover(
+                        function(){
+                            $('.tab').eq(i).find('li').removeClass('liNow');
+                            $(this).addClass('liNow');
+                            $('.tabContentDiv').eq(i).find('.tabContent').hide();
+                            $('.tabContentDiv').eq(i).find('.tabContent').eq(ii).show();
+                        },
+                        function(){}
+                )
+            })
+        })
+        //
+    })
+</script>
