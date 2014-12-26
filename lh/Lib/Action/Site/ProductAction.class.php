@@ -26,32 +26,36 @@ class ProductAction extends BaseAction{
         $dictMod = D('Dict');
         $productMod = D('Product');
 
-
-
         if(isset($_REQUEST['cid'])) {
             $currentDict = $dictMod->find($_REQUEST['cid']);
-
-            $currentDict['parent'] = $dictMod->find($currentDict['pid']);
-            $currentDict['children'] = $dictMod->where(array('pid'=>$currentDict['id']))->select();
-
         } else {
-            $currentDict = array(
-                'parent' => null,
-                'children' => $dictMod->where(array('pid'=>0, 'dictType'=>'product'))->select()
-            );
+            $allProductTypes = $dictMod->where(array('pid'=>0, 'dictType'=>'product'))->select();
+            $currentDict = $allProductTypes[0];
         }
 
+        $children = $dictMod->array_multi_array($dictMod->children($currentDict['id']));
+        $where['type'] = array('in', array_merge(array($currentDict['id']),array_keys($children)));
 
-
-        foreach($currentDict['children'] as &$childDict) {
-            $children = $dictMod->array_multi_array($dictMod->children($childDict['id']));
-
-
-
-
-            $where['type'] = array('in', array_merge(array($childDict['id']),array_keys($children)));
-            $childDict['products'] = $productMod->where($where)->select();
+        if(count($children) == 0) {
+            $childrenDicts = $dictMod->where(array('pid'=> $currentDict['pid']))->select();
+        } else {
+            $childrenDicts = $dictMod->where(array('pid'=> $currentDict['id']))->select();
         }
+
+        $products = $productMod->where($where)->select();
+
+        $dictChain = $this->getDictChain($currentDict['id']);
+
+        $dictChainIds = array();
+        foreach($dictChain as $dict) {
+            $dictChainIds[] = $dict['id'];
+        }
+
+        $this->assign('dictChainIds', $dictChainIds);
+        $this->assign('dictChain', $dictChain);
+        $this->assign('dictChainCount', count($dictChain));
+        $this->assign('leafDicts', $childrenDicts);
+        $this->assign('products', $products);
         $this->assign('currentDict', $currentDict);
         $this->display();
     }

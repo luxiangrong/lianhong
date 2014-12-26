@@ -8,38 +8,37 @@
         </div>
         <div class="fr w720">
             <div class="pageNow">
-                <a href="">首页</a> &gt;
-                <a href="{:U('Product/lists')}">产品概览</a> &gt;
-                <notempty name="currentDict.parent">
-                    <a href="javascript:void(0);">{$currentDict.parent.dictName}</a> &gt;
-                </notempty>
-                <b>{$currentDict.dictName}</b></div>
+                <a href="{:U('Index/index')}">首页</a> &gt;
+                <a href="javascript:void(0);">产品概览</a> &gt;
+                <volist name="dictChain" id="dict">
+                    <if condition="$i eq $dictChainCount"><b>{$dict.dictName}</b>
+                        <else/>
+                        <a href="{:U('Product/lists?cid='.$dict['id'])}">{$dict.dictName}</a>
+                    </if>
+                    <neq name="i" value="$dictChainCount"> &nbsp;&gt; &nbsp;</neq>
+                </volist>
+            </div>
             <!--内容-->
             <div class="product">
-                <div class="tab productTab font">
+                <div class=" productTab font">
                     <ul>
-                        <volist name="currentDict.children" id="childDict">
-                            <li <eq name="i" value="1">class="liNow"</eq>>{$childDict.dictName}</li>
+                        <volist name="leafDicts" id="childDict">
+                            <li <eq name="Think.get.cid" value="$childDict['id']">class="liNow"</eq>><a href="{:U('Product/lists?cid='. $childDict['id'])}">{$childDict.dictName}</a></li>
                         </volist>
                     </ul>
                 </div>
-                <div class="tabContentDiv font">
-                    <volist name="currentDict.children" id="childDict">
-                        <div class="tabContent productCon" style="display: none;">
-                            <eq name="childDict.products|count" value="0">
-                                {$childDict.dictName}--暂无数据
-                            </eq>
-                            <ul>
-                                <volist name="childDict.products" id="product">
-                                <li>
-                                    <div class="imgDiv"><a href="{:U('Product/view?pid='.$product['id'])}"><img src="{$product.listImg}"></a></div>
-                                    <div class="name"><a href="{:U('Product/view?pid='.$product['id'])}">{$product.name}</a></div>
-                                </li>
-                                </volist>
-                            </ul>
-                            <span class="clear_f"></span>
-                        </div>
-                    </volist>
+                <div class="font">
+                    <div class="productCon">
+                        <ul>
+                            <volist name="products" id="product">
+                            <li>
+                                <div class="imgDiv product"><a href="{:U('Product/view?pid='.$product['id'])}"><img src="{$product.listImg}"></a></div>
+                                <div class="name"><a href="{:U('Product/view?pid='.$product['id'])}">{$product.name}</a></div>
+                            </li>
+                            </volist>
+                        </ul>
+                        <span class="clear_f"></span>
+                    </div>
                 </div>
             </div>
             <div class="h50"></div>
