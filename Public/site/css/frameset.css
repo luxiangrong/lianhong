@@ -8,6 +8,7 @@ fieldset,form,label,legend,
 table,caption,tbody,thead,tr,th,td{
 margin:0;
 padding:0;
+border:0 none;
 outline:0;
 font-size:12px;
 color:#000;
@@ -234,6 +235,7 @@ a:active{text-decoration: none;color: #3FA3EF;}
 
 .productTab{font-size:14px; height:64px; line-height:64px; overflow:hidden; position:relative;}
 .productTab li{font-size:14px; float:left; padding:0 16px 0 18px; background:url(../images/lico1.gif) left center no-repeat; cursor:pointer; position:relative; left:-18px;}
+.productTab .liNow {color:#0779bf;}
 .productTab .liNow a{color:#0779bf;}
 
 .productCon li{float:left; width:217px; height:215px; overflow:hidden; padding-right:23px; text-align:center;}
@@ -248,4 +250,8 @@ a:active{text-decoration: none;color: #3FA3EF;}
 .product img {
     width: 217px;
     height: 163px;
+}
+.productContent table,
+.productContent td {
+    border-width: inherit;
 }

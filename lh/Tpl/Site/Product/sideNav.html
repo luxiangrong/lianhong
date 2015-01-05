@@ -5,7 +5,13 @@
         <h2><a href="{:U('Product/lists?cid='.$dict['id'])}">{$dict.dictName}</a></h2>
         <ul>
         <volist name="dict.children" id="childDict">
-            <li><a href="{:U('Product/lists?cid='.$childDict['id'])}" <eq name="Think.get.cid" value="$childDict['id']">class="aNow"</eq>>{$childDict.dictName}</a></li>
+            <li><a href="{:U('Product/lists?cid='.$childDict['id'])}"
+            <?php
+                if($_GET['cid'] == $childDict['id'] || in_array($childDict['id'], $dictChainIds)) {
+                    echo 'class="aNow"';
+                }
+            ?>
+            >{$childDict.dictName}</a></li>
         </volist>
         </ul>
     </volist>

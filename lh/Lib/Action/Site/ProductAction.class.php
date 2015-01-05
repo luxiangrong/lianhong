@@ -69,9 +69,17 @@ class ProductAction extends BaseAction{
         $this->assign('product', $product);
         $this->assign('dictChain', $dictChain);
         $this->assign('dictChainCount', count($dictChain));
-
+        $this->assign('dictChainIds', $this->getChainIds($dictChain));
 
         $this->display();
+    }
+
+    private function getChainIds($chains) {
+        $result = array();
+        foreach($chains as $chain) {
+            $result[]=$chain['id'];
+        }
+        return $result;
     }
 
     private function getDictChain($typeId, &$chain=array(), $reverse=true) {

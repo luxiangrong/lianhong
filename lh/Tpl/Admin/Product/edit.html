@@ -9,6 +9,14 @@
                 <input type="text" name="name" value="{$productInfo.name}"/>
             </li>
             <li>
+                <span class="addadtit">标题图片：</span>
+                <input type="text" id="titleImg" name="titleImg" value="{$productInfo.titleImg}" />
+                <input type="button" class="reset" id="titleImgBtn" value="上传" />
+                <if condition="$productInfo['titleImg']">
+                    <img src="{$productInfo['titleImg']}" width="146" height="43" onerror="jq(this).remove()" />
+                </if>
+            </li>
+            <li>
                 <span class="addadtit">产品类型：</span>
                 <select name="type"  hidefocus>
                     <volist name="dicts" id="dt">
@@ -29,14 +37,13 @@
                 </if>
             </li>
             <li>
-                <span class="addadtit">标题图片：</span>
-                <input type="text" id="titleImg" name="titleImg" value="{$productInfo.titleImg}" />
-                <input type="button" class="reset" id="titleImgBtn" value="上传" />
-                <if condition="$productInfo['titleImg']">
-                    <img src="{$productInfo['titleImg']}" width="146" height="43" onerror="jq(this).remove()" />
+                <span class="addadtit">产品说明文档：</span>
+                <input type="text" id="attachment" name="attachment" value="{$productInfo.attachment}" />
+                <input type="button" class="reset" id="attachmentBtn" value="上传" />
+                <if condition="$productInfo['attachment']">
+                    <a id="attachment-content" href="{$productInfo['attachment']}">产品说明文档,点击下载</a>
                 </if>
             </li>
-
             <li>
                 <span class="addadtit">产品说明：</span>
                 <input type="button" class="reset" id="addAttribute" value="添加" />
@@ -83,6 +90,14 @@
             </if>
         </div>
         <ul class="addad">
+            <li>
+                <span class="addadtit">产品说明文档：</span>
+                <input type="text" id="attachment" name="attachment" value="{$productInfo.attachment}" />
+                <input type="button" class="reset" id="attachmentBtn" value="上传" />
+                <if condition="$productInfo['attachment']">
+                    <a id="attachment-content" href="{$productInfo['attachment']}">产品说明文档,点击下载</a>
+                </if>
+            </li>
             <li>
                 <input type="hidden" name="delAttrs" id="delAttrs" value="" />
                 <input type="hidden" name="id" value="{$productInfo.id}" />
@@ -195,7 +210,6 @@
                             if(img.length) {
                                 img.attr('src', response.file);
                             } else {
-                                console.log(response.file);
                                 jq('#listImg').parent().append(jq('<img src="' + response.file + '" width="75" height="75" />'));
                             }
                         }
@@ -216,8 +230,27 @@
                 if(img.length) {
                     img.attr('src', response.file);
                 } else {
-                    console.log(response.file);
                     jq('#titleImg').parent().append(jq('<img src="' + response.file + '" width="146" height="43" />'));
+                }
+            }
+        }
+        });
+
+        new AjaxUpload('#attachmentBtn', {
+            action :'{:U('Upload/upload')}',//请求目标
+                name:'upfile',//文件参数名
+                multiple:false,//可以多选文件
+                onComplete:function(file, response) {
+            var response = eval('('+response+')');
+            if(response.msg){
+                alert(response.msg);
+            }else{
+                jq('#attachment').val(response.file);
+                var attachment = jq('#attachment').parent().find('#attachment-content');
+                if(attachment.length) {
+                    attachment.attr('href', response.file);
+                } else {
+                    jq('#attachment').parent().append(jq('<a id="attachment-content" href="' + response.file + '">产品说明文档,点击下载</a>'));
                 }
             }
         }
