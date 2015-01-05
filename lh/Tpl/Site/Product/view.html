@@ -30,6 +30,12 @@
                 <volist name="product.attributes" id="attr">
                     <div class="tabContent productShowCon" style="display: none;">
                         <div class="content">{$attr.attrValue}</div>
+                        <br/><br/>
+                        <eq name="i" value="1">
+                            <neq name="product.attachment" value="">
+                                <a href="{$product.attachment}">点击下载详细说明文档</a>
+                            </neq>
+                        </eq>
                     </div>
                 </volist>
 
