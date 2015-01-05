@@ -91,14 +91,6 @@
         </div>
         <ul class="addad">
             <li>
-                <span class="addadtit">产品说明文档：</span>
-                <input type="text" id="attachment" name="attachment" value="{$productInfo.attachment}" />
-                <input type="button" class="reset" id="attachmentBtn" value="上传" />
-                <if condition="$productInfo['attachment']">
-                    <a id="attachment-content" href="{$productInfo['attachment']}">产品说明文档,点击下载</a>
-                </if>
-            </li>
-            <li>
                 <input type="hidden" name="delAttrs" id="delAttrs" value="" />
                 <input type="hidden" name="id" value="{$productInfo.id}" />
                 <input class="submit" name="setSubmit" type="submit" value="保 存" />
