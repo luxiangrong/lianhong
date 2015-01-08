@@ -43,7 +43,7 @@ return array(
 	
 				
 	//配置上传图片的一些配置
-	'XSIZE' => 3145728, 							//设置附件上传大小	
+	'XSIZE' => 10485760, 							//设置附件上传大小
 	'ALLOWEXTS'=>array('jpg', 'gif', 'png', 'jpeg','rar','doc','docx'),//设置附件上传类型
 	'SAVEPATH' => './Public/uploads/',				// 设置附件上传目录
 	
