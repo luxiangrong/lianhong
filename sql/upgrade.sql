@@ -22,5 +22,12 @@ CREATE TABLE `lh_product_attribute` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=utf8 COMMENT='产品详细描述';
 
+ALTER TABLE `lh_product`
+DROP COLUMN `attachment`,
+ADD COLUMN `attachment`  varchar(255) NOT NULL AFTER `titleImg`;
+
+ALTER TABLE `lh_product`
+ADD COLUMN `attachment_name`  varchar(255) NOT NULL AFTER `attachment`;
+
 
 

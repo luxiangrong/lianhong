@@ -37,11 +37,15 @@
                 </if>
             </li>
             <li>
+                <span class="addadtit">文档名：</span>
+                <input type="text" name="attachment_name" value="{$productInfo.attachment_name}" />
+            </li>
+            <li>
                 <span class="addadtit">产品说明文档：</span>
                 <input type="text" id="attachment" name="attachment" value="{$productInfo.attachment}" />
                 <input type="button" class="reset" id="attachmentBtn" value="上传" />
                 <if condition="$productInfo['attachment']">
-                    <a id="attachment-content" href="{$productInfo['attachment']}">产品说明文档,点击下载</a>
+                    <a id="attachment-content" href="{$productInfo['attachment']}">{$productInfo.attachment_name}</a>
                 </if>
             </li>
             <li>
@@ -242,7 +246,7 @@
                 if(attachment.length) {
                     attachment.attr('href', response.file);
                 } else {
-                    jq('#attachment').parent().append(jq('<a id="attachment-content" href="' + response.file + '">产品说明文档,点击下载</a>'));
+                    jq('#attachment').parent().append(jq('<a id="attachment-content" href="' + response.file + '">' + jq("[name='attachment_name']").val() + '</a>'));
                 }
             }
         }

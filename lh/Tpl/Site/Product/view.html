@@ -11,13 +11,10 @@
                 <a href="{:U('Index/index')}">首页</a> &gt;
                 <a href="javascript:void(0);">产品概览</a> &gt;
                 <volist name="dictChain" id="dict">
-                    <if condition="$i eq $dictChainCount"><b>{$dict.dictName}</b>
-                        <else/>
                         <a href="{:U('Product/lists?cid='.$dict['id'])}">{$dict.dictName}</a>
-                    </if>
-                    <neq name="i" value="$dictChainCount"> &nbsp;&gt; &nbsp;</neq>
+                        &nbsp;&gt; &nbsp;
                 </volist>
-
+                <b>{$product.name}</b>
             </div>
             <div class="tab productTab font">
                 <ul>
@@ -29,13 +26,16 @@
             <div class="tabContentDiv productContent">
                 <volist name="product.attributes" id="attr">
                     <div class="tabContent productShowCon" style="display: none;">
-                        <div class="content">{$attr.attrValue}</div>
+                        <div class="content">
+                            {$attr.attrValue}
+                        </div>
                         <br/><br/>
                         <eq name="i" value="1">
                             <neq name="product.attachment" value="">
-                                <a href="{$product.attachment}">点击下载详细说明文档</a>
+                                <a href="{$product.attachment}">{$product.attachment_name}</a>
                             </neq>
                         </eq>
+                        <br/><br/>
                     </div>
                 </volist>
 

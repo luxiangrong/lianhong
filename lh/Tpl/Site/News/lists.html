@@ -14,8 +14,8 @@
                         
 						<div class="lineRight">
 							<span class="time" style="font-size:14px; width:460px; text-align:right;">{:client_date($nl['createTime'])}</span><br/>
-							<span class="title"><a href="{:U('News/view?id='.$nl['id'])}" style="font-size:14px; font-weight:bold; font-family:'宋体'">{$nl.newsTitle}</a></span><br/>
-							<p class="summary" style="line-height:20px; padding:2px 0; text-indent:inherit; padding-left:0px; height:58px;font-family:'宋体'; font-size:13px;">
+							<span class="title"><a href="{:U('News/view?id='.$nl['id'])}" style="font-size:14px; font-weight:bold; ">{$nl.newsTitle}</a></span><br/>
+							<p class="summary" style="line-height:20px; padding:2px 0; text-indent:inherit; padding-left:0px; height:58px; font-size:13px;">
 								{:client_substr($nl['newsContent'],90)}
 							</p>
 							<a href="{:U('News/view?id='.$nl['id'])}" class="more">更多内容&gt;&gt;</a>
