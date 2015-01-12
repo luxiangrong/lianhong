@@ -42,7 +42,7 @@ class ProductAction extends CommonAction {
             $where['name'] = array('like', '%'.$_REQUEST['pname'].'%');
         }
 
-        $list = $productMod->join(' n left join __DICT__ d on d.id=n.type')->field('n.*,d.dictName as typeName')->where($where)->order('id asc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $productMod->join(' n left join __DICT__ d on d.id=n.type')->field('n.*,d.dictName as typeName')->where($where)->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 
         $this->assign('list',$list);
         $this->assign('page',$show);
