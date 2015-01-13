@@ -186,7 +186,7 @@ a:active{text-decoration: none;color: #3FA3EF;}
 .blue, .wal a:hover{color:#007fcd;}
 .pageBg{background:#FFF; min-height:500px; _height:500px;}
 .w735{width:735px; overflow:hidden;}
-.w720{width:720px; overflow:hidden;}
+.w720{width:720px; overflow:hidden; padding-top: 10px;}
 .w222{width:222px; overflow:hidden;}
 .w211{width:211px; padding:10px 0 0 11px; overflow:hidden;}
 
