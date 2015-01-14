@@ -36,7 +36,7 @@
                     <img src="{$productInfo['listImg']}" width="75" height="75" onerror="jq(this).remove()" />
                 </if>
             </li>
-            
+
             <li>
                 <span class="addadtit">产品说明：</span>
                 <input type="button" class="reset" id="addAttribute" value="添加" />
@@ -95,10 +95,8 @@
 <script type="text/javascript">
     var editor;
     var options = {
-        uploadJsonPath : "{:U('Kindeditorupload/imageupload')}",
-        fileJsonPath : "{:U('Kindeditorupload/filemanager')}",
         allowFileManager: true,
-        imageUploadJson: "{:U('Kindeditorupload/imageupload')}",
+        uploadJson: "{:U('Kindeditorupload/imageupload')}",
         fileManagerJson: "{:U('Kindeditorupload/filemanager')}"
     };
     KindEditor.ready(function(K) {
@@ -219,26 +217,6 @@
                     img.attr('src', response.file);
                 } else {
                     jq('#titleImg').parent().append(jq('<img src="' + response.file + '" width="146" height="43" />'));
-                }
-            }
-        }
-        });
-
-        new AjaxUpload('#attachmentBtn', {
-            action :'{:U('Upload/upload')}',//请求目标
-                name:'upfile',//文件参数名
-                multiple:false,//可以多选文件
-                onComplete:function(file, response) {
-            var response = eval('('+response+')');
-            if(response.msg){
-                alert(response.msg);
-            }else{
-                jq('#attachment').val(response.file);
-                var attachment = jq('#attachment').parent().find('#attachment-content');
-                if(attachment.length) {
-                    attachment.attr('href', response.file);
-                } else {
-                    jq('#attachment').parent().append(jq('<a id="attachment-content" href="' + response.file + '">' + jq("[name='attachment_name']").val() + '</a>'));
                 }
             }
         }
