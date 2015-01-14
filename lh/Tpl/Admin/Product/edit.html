@@ -36,18 +36,7 @@
                     <img src="{$productInfo['listImg']}" width="75" height="75" onerror="jq(this).remove()" />
                 </if>
             </li>
-            <li>
-                <span class="addadtit">文档名：</span>
-                <input type="text" name="attachment_name" value="{$productInfo.attachment_name}" />
-            </li>
-            <li>
-                <span class="addadtit">产品说明文档：</span>
-                <input type="text" id="attachment" name="attachment" value="{$productInfo.attachment}" />
-                <input type="button" class="reset" id="attachmentBtn" value="上传" />
-                <if condition="$productInfo['attachment']">
-                    <a id="attachment-content" href="{$productInfo['attachment']}">{$productInfo.attachment_name}</a>
-                </if>
-            </li>
+            
             <li>
                 <span class="addadtit">产品说明：</span>
                 <input type="button" class="reset" id="addAttribute" value="添加" />
@@ -107,7 +96,10 @@
     var editor;
     var options = {
         uploadJsonPath : "{:U('Kindeditorupload/imageupload')}",
-        fileJsonPath : "{:U('Kindeditorupload/filemanager')}"
+        fileJsonPath : "{:U('Kindeditorupload/filemanager')}",
+        allowFileManager: true,
+        imageUploadJson: "{:U('Kindeditorupload/imageupload')}",
+        fileManagerJson: "{:U('Kindeditorupload/filemanager')}"
     };
     KindEditor.ready(function(K) {
 
