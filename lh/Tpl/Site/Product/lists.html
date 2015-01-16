@@ -20,13 +20,16 @@
             </div>
             <!--内容-->
             <div class="product">
-                <div class=" productTab font">
-                    <ul>
-                        <volist name="leafDicts" id="childDict">
-                            <li <eq name="Think.get.cid" value="$childDict['id']">class="liNow"</eq>><a href="{:U('Product/lists?cid='. $childDict['id'])}">{$childDict.dictName}</a></li>
-                        </volist>
-                    </ul>
-                </div>
+                <notempty name="leafDicts">
+                    <div class=" productTab font">
+                        <ul>
+                            <volist name="leafDicts" id="childDict">
+                                <li <eq name="Think.get.cid" value="$childDict['id']">class="liNow"</eq>><a href="{:U('Product/lists?cid='. $childDict['id'])}">{$childDict.dictName}</a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </notempty>
+
                 <div class="font">
                     <div class="productCon">
                         <ul>

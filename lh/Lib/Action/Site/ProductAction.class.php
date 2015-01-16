@@ -36,11 +36,7 @@ class ProductAction extends BaseAction{
         $children = $dictMod->array_multi_array($dictMod->children($currentDict['id']));
         $where['type'] = array('in', array_merge(array($currentDict['id']),array_keys($children)));
 
-        if(count($children) == 0) {
-            $childrenDicts = $dictMod->where(array('pid'=> $currentDict['pid']))->select();
-        } else {
-            $childrenDicts = $dictMod->where(array('pid'=> $currentDict['id']))->select();
-        }
+
 
         $products = $productMod->where($where)->select();
 
@@ -50,6 +46,13 @@ class ProductAction extends BaseAction{
         foreach($dictChain as $dict) {
             $dictChainIds[] = $dict['id'];
         }
+
+        if(count($dictChain) == 3  ) {
+            $childrenDicts = $dictMod->where(array('pid'=> $currentDict['pid']))->select();
+        } else if(count($dictChain) == 2 && count($children) > 0) {
+            $childrenDicts = $dictMod->where(array('pid'=> $currentDict['id']))->select();
+        }
+
 
         $this->assign('dictChainIds', $dictChainIds);
         $this->assign('dictChain', $dictChain);
