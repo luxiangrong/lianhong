@@ -1,7 +1,13 @@
 <div class="wal">
     <div class="pageBg">
         <!--wal-->
-        <div><img src="__SITE__/images/limg960.jpg"></div>
+        <div>
+            <empty name="currentDict.bannerImg">
+                <img src="__SITE__/images/limg960.jpg">
+            <else />
+                <img src="{$currentDict.bannerImg}" />
+            </empty>
+        </div>
         <div class="h10"></div>
         <div class="fl w211">
             <include file="Product:sideNav"/>

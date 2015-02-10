@@ -28,7 +28,15 @@
 			</span>
     	</li>
     	<li><span class="addadtit">分类排序：</span><input type="text" name="dictSort" value="{$dictInfo.dictSort}"/></li>
-    	<li>
+        <li>
+            <span class="addadtit">分类图片：</span>
+            <input type="text" id="bannerImg" name="bannerImg" value="{$dictInfo.bannerImg}" />
+            <input type="button" class="reset" id="bannerImgBtn" value="上传" />
+            <if condition="$dictInfo['bannerImg']">
+                <img src="{$dictInfo['bannerImg']}" width="175" height="75" onerror="jq(this).remove()" />
+            </if>
+        </li>
+        <li>
     		<input type="hidden" name="id" value="{$dictInfo.id}" />
     		<input class="submit" name="setSubmit" type="submit" value="保 存" />
     		<input class="reset" name="backBtn" type="reset" value="取 消" onclick="window.history.back(-1);"/>
@@ -46,6 +54,27 @@ function getPids(obj){
 		jq('#dictPid1').html(data);
 	});
 }
+jq(document).ready(function() {
+    new AjaxUpload('#bannerImgBtn', {
+        action :'{:U('Upload/upload')}',//请求目标
+        name:'upfile',//文件参数名
+        multiple:false,//可以多选文件
+        onComplete:function(file, response) {
+            var response = eval('('+response+')');
+            if(response.msg){
+                alert(response.msg);
+            }else{
+                jq('#bannerImg').val(response.file);
+                var img = jq('#bannerImg').parent().find('img');
+                if(img.length) {
+                    img.attr('src', response.file);
+                } else {
+                    jq('#bannerImg').parent().append(jq('<img src="' + response.file + '" width="146" height="43" />'));
+                }
+            }
+        }
+    });
+});
 </script>
 <!-- 主页面结束 -->
 {// 加载尾部公共文件 }

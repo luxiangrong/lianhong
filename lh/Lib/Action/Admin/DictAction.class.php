@@ -41,6 +41,7 @@ class DictAction extends CommonAction{
     				}
     				$val['dictSort'] = $v['dictSort']; 
     				$val['pid'] = $v['pid'];
+                    $val['bannerImg'] = $v['bannerImg'];
     			}
     		}
 			$lists[] = $val;

@@ -15,6 +15,7 @@
 		</form>
 		分类列表>> 【<a href="{:U('Dict/edit')}">添加分类</a>】<br />
 	</h3>
+
     <table cellspacing="0" cellpadding="0">
       <thead>
       <tr>
@@ -22,6 +23,9 @@
         <th>分类类型</th>
         <th>分类名称</th>
         <th>排序</th>
+        <eq name="Think.get.dictType" value="product">
+            <th>banner图片</th>
+        </eq>
         <th class="operatio">操作</th>
       </tr>
   	  </thead>
@@ -32,6 +36,10 @@
         <td>{$v.typeName}</td>
         <td class="tree-content">{$v.dictName}</td>
         <td>{$v.dictSort}</td>
+          <eq name="Think.get.dictType" value="product">
+
+              <td><img src="{$v.bannerImg}" style="max-width: 140px; max-height: 70px;" onerror="jq(this).remove()" /></td>
+          </eq>
         <td class="tdlast"><a href="{:U('Dict/edit?id='.$v['id'])}" class="edit"> 编辑</a><a href="{:U('Dict/del?id='.$v['id'])}" class="dele">删除</a></td>
       </tr>
       </volist>

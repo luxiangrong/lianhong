@@ -29,5 +29,9 @@ ADD COLUMN `attachment`  varchar(255) NOT NULL AFTER `titleImg`;
 ALTER TABLE `lh_product`
 ADD COLUMN `attachment_name`  varchar(255) NOT NULL AFTER `attachment`;
 
+ALTER TABLE `lh_dict`
+ADD COLUMN `bannerImg`  varchar(256) NULL AFTER `dictType`;
+
+
 
 
